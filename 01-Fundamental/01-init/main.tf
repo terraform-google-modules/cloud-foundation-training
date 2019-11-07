@@ -25,7 +25,7 @@
  * Task 2: Add Google provider configuration
  * - version     = "~> 2.0"
  * - project     = "<YOUR_PROJECT_ID>"
- * - region      = "asia-southeast1"
+ * - region      = "<YOUR_REGION>"
  *
  * See https://www.terraform.io/docs/providers/google/index.html
  *
@@ -44,9 +44,9 @@
 
 /**
  * Task 3.2: Add a GCS Bucket
- * - Name: "terraform-kata-logs-<YOUR_NAME>-${random_id.suffix.hex}"
- * - Storage Class: Regional
- * - Location: Singapore
+ * - Name: "cft-tf-lab-logs-<YOUR_NAME>-${random_id.suffix.hex}"
+ * - Storage Class: Standard
+ * - Location: US
  * - Force Destroy: True
  * - Versioning: Enabled
  *
@@ -56,9 +56,9 @@
 
 /**
  * Task 4: Add a GCS Bucket for remote state
- * - Name: "terraform-kata-state-<YOUR_NAME>-${random_id.suffix.hex}"
- * - Storage Class: Regional
- * - Location: Singapore
+ * - Name: "cft-tf-lab-state-<YOUR_NAME>-${random_id.suffix.hex}"
+ * - Storage Class: Standard
+ * - Location: US
  * - Versioning: Enabled
  *
  * https://www.terraform.io/docs/providers/google/r/storage_bucket.html
@@ -68,7 +68,7 @@
 /**
  * Task 5.1: Add a Cloud KMS Key Ring
  * - Name: "gcs-keyring"
- * - Location: Singapore
+ * - Region: <YOUR_REGION>
  *
  * https://www.terraform.io/docs/providers/google/r/kms_key_ring.html
  *
