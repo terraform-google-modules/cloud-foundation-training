@@ -13,3 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+provider "google" {
+  project = var.project_id
+  region  = var.region
+  version = "~> 2.7.0"
+}
+
+module "project-iam-bindings" {
+  source   = "terraform-google-modules/iam/google//modules/projects_iam"
+  projects = ["my-project_one", "my-project_two"]
+  mode     = "additive"
+
+  bindings = {
+    "roles/compute.networkAdmin" = [
+      "group:network-admins@my-org.com",
+      "user:sally.@my-org.com",
+    ]
+  }
+}
