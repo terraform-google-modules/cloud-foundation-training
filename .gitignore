@@ -11,9 +11,6 @@
 */plan.out*
 plan.out
 
-# backend.tf
-*/backend.tf
-
 # Crash log files
 crash.log
 
