@@ -13,3 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+terraform {
+  backend "gcs" {
+    bucket = "" # Replace this with an existing GCS bucket
+    prefix = "terraform/state"
+  }
+}
+provider "google" {
+  project = var.project_id
+  region  = var.region
+  version = "~> 2.7.0"
+}
