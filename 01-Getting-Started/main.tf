@@ -19,15 +19,15 @@ provider "google" {
   version = "~> 2.7.0"
 }
 
-module "project-iam-bindings" {
-  source   = "terraform-google-modules/iam/google//modules/projects_iam"
-  projects = ["my-project_one", "my-project_two"]
-  mode     = "additive"
-
-  bindings = {
-    "roles/compute.networkAdmin" = [
-      "group:network-admins@my-org.com",
-      "user:sally.@my-org.com",
-    ]
-  }
-}
+/**
+ * Task 1: Add IAM Role Bindings
+ * - Name: project-iam-bindings
+ * - Projects: Name of my project
+ * - Mode: Additive
+ * - Bindings:
+ *   - Role: roles/compute.networkAdmin
+ *   - Members: user:username@email.com
+ *
+ * https://github.com/terraform-google-modules/terraform-google-iam
+ *
+ */
