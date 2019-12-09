@@ -1,7 +1,7 @@
 
 # Cloud Foundation Toolkit Lab - Getting Started
 
-## **Prerequisite**
+## Prerequisite
 
 Complete **Setup** Labs
 
