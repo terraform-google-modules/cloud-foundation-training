@@ -13,27 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-module "network" {
-  source       = "terraform-google-modules/network/google"
-  version      = "~> 1.4.3"
-  project_id   = var.project_id
-  network_name = "lab-vpc"
-  routing_mode = "GLOBAL"
-  subnets = [
-    {
-      subnet_name   = "subnet-01"
-      subnet_ip     = "10.10.10.0/24"
-      subnet_region = "us-west1"
-    }
-  ]
-}
-module "cloud_nat" {
-  source        = "terraform-google-modules/cloud-nat/google"
-  version       = "~> 1.1.0"
-  project_id    = var.project_id
-  region        = "us-west1"
-  name          = "load-balancer-module-nat"
-  create_router = "true"
-  router        = "lab-router"
-  network       = module.network.network_name
-}
+/**
+ * Task 1: Add Network ("network")
+ * - Network Name: network
+ * - Project: Name of my project
+ * - Routing Mode: Global
+ * - Subnets:
+ *   - Subnet Name: subnet-01
+ *   - Subnet IP: 10.0.10.0/24
+ *   - Subnet Region: us-central1
+ *
+ * https://github.com/terraform-google-modules/terraform-google-network
+ *
+ */
+/**
+ * Task 2: Add Cloud NAT Instance ("cloud-nat")
+ * - Project: Name of my project
+ * - Region: us-west1
+ * - Name: Name of Cloud NAT resource
+ * - Create Router: true
+ * - Router: New name of router
+ * - Network: Reference to network resource - module.network.network_name
+ *
+ * https://github.com/terraform-google-modules/terraform-google-cloud-nat
+ *
+ */
