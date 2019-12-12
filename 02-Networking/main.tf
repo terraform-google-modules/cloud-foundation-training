@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * Task 1: Add Network ("network")
  * - Network Name: network
@@ -26,6 +27,7 @@
  * https://github.com/terraform-google-modules/terraform-google-network
  *
  */
+
 /**
  * Task 2: Add Cloud NAT Instance ("cloud-nat")
  * - Project: Name of my project

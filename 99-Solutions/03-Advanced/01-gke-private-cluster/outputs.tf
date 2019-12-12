@@ -24,5 +24,5 @@
  *
  */
 output "endpoint" {
-  value       = module.gke.endpoint
+  value = module.gke.endpoint
 }

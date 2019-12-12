@@ -13,9 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-variable "project_id" {
 
+variable "project_id" {
+  description = "GCP Project ID"
 }
+
 variable "region" {
-  default = "us-west1"
+  description = "GCP Region"
+  default     = "us-west1"
 }
