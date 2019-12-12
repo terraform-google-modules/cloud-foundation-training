@@ -46,18 +46,18 @@ You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-i
 
 #### Cloud Shell
 
-**Note**: Cloud Shell comes with Terraform v0.12.2 built-in, you can skip to 3. Verify, or continue if you would like to install the latest version.
+**Note**: Cloud Shell comes with Terraform v0.12.9 built-in, you can skip to 3. Verify, or continue if you would like to install the latest version (as of December 2019).
 
-1. Download version v0.12.6
+1. Download version v0.12.18 (MacOS)
 
 ```
-wget https://releases.hashicorp.com/terraform/0.12.6/terraform_0.12.6_linux_amd64.zip
+wget https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_darwin_amd64.zip
 ```
 
 2. Uncompress downloaded file
 
 ```
-unzip terraform_0.12.6_linux_amd64.zip
+unzip terraform_0.12.18_darwin_amd64.zip
 ```
 
 3. Verfiy
