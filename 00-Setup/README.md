@@ -8,7 +8,6 @@
 
 ### **Setup Googel Cloud SDK and environment**
 
-
 List current configurations
 
 ```
@@ -58,4 +57,3 @@ Verify Google Cloud SDK configuration
 ```
 gcloud config list
 ```
-
