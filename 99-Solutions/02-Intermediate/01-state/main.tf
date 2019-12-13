@@ -14,12 +14,6 @@
  * limitations under the License.
  */
 
-provider "google" {
-  version = "~> 2.0"
-  project = "${var.project_id}"
-  region  = "${var.default_region}"
-}
-
 /**
  * Task: Add a GCS Bucket with same bucket name as manually created
  * - Name: "terraform-kata-import-<YOUR_NAME>-<RANDOM_SUFFIX>"
@@ -33,6 +27,6 @@ provider "google" {
  */
 resource "google_storage_bucket" "manual_created_bucket" {
   name          = "terraform-kata-import-<YOUR_NAME>-<RANDOM_SUFFIX>"
-  location      = "${var.default_region}"
-  storage_class = "${var.storage_class}"
+  location      = var.region
+  storage_class = var.storage_class
 }

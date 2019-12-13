@@ -16,7 +16,7 @@
 
 /**
  * Task: Add variable for the following values and use them in main.tf
- * - default_region
+ * - region
  * - project_id
  * - network
  * - subnetworks = List of subnetwork names ("application" and "database")

@@ -14,12 +14,6 @@
  * limitations under the License.
  */
 
-provider "google" {
-  version = "~> 2.0"
-  project = "${var.project_id}"
-  region  = "${var.default_region}"
-}
-
 /**
  * Task 3: Add a Cloud Source Repository
  * - Name: "tf-manifest-repository"

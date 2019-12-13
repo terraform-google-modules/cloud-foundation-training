@@ -21,23 +21,8 @@
  *
  */
 locals {
-  suffix     = "${random_id.suffix.hex}"
-  versioning = "true"
-}
-
-/**
- * Task 2: Add Google provider configuration
- * - version     = "~> 2.0"
- * - project     = "<YOUR_PROJECT_ID>"
- * - region      = "asia-southeast1"
- *
- * See https://www.terraform.io/docs/providers/google/index.html
- *
- */
-provider "google" {
-  version = "~> 2.0"
-  project = "${var.project_id}"
-  region  = "${var.default_region}"
+  suffix     = random_id.suffix.hex
+  versioning = true
 }
 
 /**
@@ -67,12 +52,12 @@ resource "random_id" "suffix" {
  */
 resource "google_storage_bucket" "terraform_kata_logs" {
   name          = "terraform-kata-logs-aaron-${local.suffix}"
-  storage_class = "${var.storage_class}"
-  location      = "${var.default_region}"
-  force_destroy = "true"
+  storage_class = var.storage_class
+  location      = var.region
+  force_destroy = true
 
   versioning {
-    enabled = "${local.versioning}"
+    enabled = local.versioning
   }
 }
 
@@ -88,11 +73,11 @@ resource "google_storage_bucket" "terraform_kata_logs" {
  */
 resource "google_storage_bucket" "terraform_kata_state" {
   name          = "terraform-kata-state-aaron-${local.suffix}"
-  storage_class = "${var.storage_class}"
-  location      = "${var.default_region}"
+  storage_class = var.storage_class
+  location      = var.region
 
   versioning {
-    enabled = "${local.versioning}"
+    enabled = local.versioning
   }
 }
 
@@ -106,7 +91,7 @@ resource "google_storage_bucket" "terraform_kata_state" {
  */
 resource "google_kms_key_ring" "gcs_keyring" {
   name     = "gcs-keyring"
-  location = "${var.default_region}"
+  location = var.region
 }
 
 /**
@@ -119,7 +104,7 @@ resource "google_kms_key_ring" "gcs_keyring" {
  */
 resource "google_kms_crypto_key" "gcs_key" {
   name            = "gcs-crypto-key"
-  key_ring        = "${google_kms_key_ring.gcs_keyring.self_link}"
+  key_ring        = google_kms_key_ring.gcs_keyring.self_link
   rotation_period = "100000s"
 
   lifecycle {

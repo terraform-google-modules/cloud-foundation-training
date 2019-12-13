@@ -49,7 +49,7 @@ gcloud config set project ${PROJECT_ID}
 (Optional) Set default compute region
 
 ```
-gcloud config set compute/region asia-southeast1
+gcloud config set compute/region us-west1
 ```
 
 Verify Google Cloud SDK configuration

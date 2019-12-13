@@ -14,12 +14,6 @@
  * limitations under the License.
  */
 
-provider "google" {
-  version = "~> 2.0"
-  project = "${var.project_id}"
-  region  = "${var.default_region}"
-}
-
 /**
  * Task: Add a custom VPC Network
  * - Name: ""
@@ -62,3 +56,4 @@ provider "google" {
  *
  */
 # https://cloud.google.com/load-balancing/docs/health-checks
+

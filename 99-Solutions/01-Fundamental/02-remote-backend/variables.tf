@@ -16,7 +16,7 @@
 
 /**
  * Task: Add variable for the following values and use them in main.tf
- * - default_region
+ * - region
  * - logs_bucket
  * - project_id
  * - storage_class
@@ -24,9 +24,9 @@
  * See https://www.terraform.io/docs/configuration/variables.html
  *
  */
-variable "default_region" {
-  description = "Default Region"
-  default     = "asia-southeast1"
+variable "region" {
+  description = "GCP Region"
+  default     = "us-west1"
 }
 
 variable "logs_bucket" {

@@ -14,12 +14,6 @@
  * limitations under the License.
  */
 
-provider "google" {
-  version = "~> 2.0"
-  project = "${var.project_id}"
-  region  = "${var.region}"
-}
-
 /**
  * Task 1: Enable 2 APIs
  * - compute.googleapis.com (Compute Engine API)

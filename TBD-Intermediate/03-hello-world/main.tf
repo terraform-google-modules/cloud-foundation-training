@@ -14,15 +14,9 @@
  * limitations under the License.
  */
 
-provider "google" {
-  version = "~> 2.0"
-  project = "${var.project_id}"
-  region  = "${var.default_region}"
-}
-
 data "google_compute_subnetwork" "application-subnet" {
   name   = "subnet-application"
-  region = "${var.default_region}"
+  region = var.region
 }
 
 /**
@@ -40,7 +34,7 @@ data "google_compute_subnetwork" "application-subnet" {
 /**
  * Add 1 Google Compute Engine
  * - Name = terraform-kata-hello-world-{$var.project_id}
- * - Zone = Choose a zone from default_region
+ * - Zone = Choose a zone from region
  * - Machine Type = n1-standard-1
  * - Startup Script = Use template_file
  * - Boot disk image = debian-cloud/debian-9

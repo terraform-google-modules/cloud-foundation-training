@@ -14,12 +14,6 @@
  * limitations under the License.
  */
 
-provider "google" {
-  version = "~> 2.0"
-  project = "${var.project_id}"
-  region  = "${var.default_region}"
-}
-
 /**
  * The resource random_id generates random numbers that are intended
  * to be used as unique identifiers for other resources.
@@ -30,7 +24,6 @@ provider "google" {
 resource "random_id" "suffix" {
   byte_length = "4"
 }
-
 
 /**
  * Task 3: Add a GCS Bucket with Access Logs exported to Log bucket

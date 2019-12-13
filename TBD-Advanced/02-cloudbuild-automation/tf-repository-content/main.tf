@@ -15,14 +15,8 @@
  */
 
 locals {
-  suffix     = "${random_id.suffix.hex}"
-  versioning = "true"
-}
-
-provider "google" {
-  version = "~> 2.0"
-  project = "${var.project_id}"
-  region  = "${var.default_region}"
+  suffix     = random_id.suffix.hex
+  versioning = true
 }
 
 resource "random_id" "suffix" {
@@ -31,7 +25,7 @@ resource "random_id" "suffix" {
 
 resource "google_storage_bucket" "bucket_from_cloudbuild" {
   name          = "bucket-created-by-cloudbuild-${local.suffix}"
-  storage_class = "${var.storage_class}"
-  location      = "${var.default_region}"
-  force_destroy = "true"
+  storage_class = var.storage_class
+  location      = var.region
+  force_destroy = true
 }

@@ -15,14 +15,8 @@
  */
 
 locals {
-  suffix     = "${random_id.suffix.hex}"
-  versioning = "true"
-}
-
-provider "google" {
-  version = "~> 2.0"
-  project = "${var.project_id}"
-  region  = "${var.default_region}"
+  suffix     = random_id.suffix.hex
+  versioning = true
 }
 
 /**
@@ -51,19 +45,19 @@ resource "random_id" "suffix" {
  */
 resource "google_storage_bucket" "terraform_kata_usage" {
   name          = "terraform-kata-usage-aaron-${local.suffix}"
-  storage_class = "${var.storage_class}"
-  location      = "${var.default_region}"
-  force_destroy = "true"
+  storage_class = var.storage_class
+  location      = var.region
+  force_destroy = true
 
   versioning {
-    enabled = "${local.versioning}"
+    enabled = local.versioning
   }
 
   logging {
-    log_bucket = "${var.logs_bucket}"
+    log_bucket = var.logs_bucket
   }
 
   encryption {
-    default_kms_key_name = "${data.google_kms_crypto_key.gcs_crypto_key.self_link}"
+    default_kms_key_name = data.google_kms_crypto_key.gcs_crypto_key.self_link
   }
 }

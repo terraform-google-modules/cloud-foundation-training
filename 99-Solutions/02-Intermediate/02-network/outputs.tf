@@ -24,13 +24,13 @@
  *
  */
 output "vpc" {
-  value = "${google_compute_network.vpc_network.self_link}"
+  value = google_compute_network.vpc_network.self_link
 }
 
 output "subnet" {
-  value = "${google_compute_subnetwork.subnets.*.self_link}"
+  value = google_compute_subnetwork.subnets.*.self_link
 }
 
 output "subnet_cidr_range" {
-  value = "${google_compute_subnetwork.subnets.*.ip_cidr_range}"
+  value = google_compute_subnetwork.subnets.*.ip_cidr_range
 }

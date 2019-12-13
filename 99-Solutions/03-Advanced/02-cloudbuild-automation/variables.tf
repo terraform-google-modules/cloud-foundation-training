@@ -16,15 +16,15 @@
 
 /**
  * Task: Add variable for the following values and use them in main.tf
- * - default_region
+ * - region
  * - project_id
  *
  * See https://www.terraform.io/docs/configuration/variables.html
  *
  */
-variable "default_region" {
-  description = "Default Region"
-  default     = "asia-southeast1"
+variable "region" {
+  description = "GCP Region"
+  default     = "us-west1"
 }
 
 variable "project_id" {

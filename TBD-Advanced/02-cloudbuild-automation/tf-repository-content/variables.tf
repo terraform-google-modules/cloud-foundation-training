@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-variable "default_region" {
-  description = "Default Region"
-  default     = "asia-southeast1"
+variable "region" {
+  description = "GCP Region"
+  default     = "us-west1"
 }
 
 variable "project_id" {

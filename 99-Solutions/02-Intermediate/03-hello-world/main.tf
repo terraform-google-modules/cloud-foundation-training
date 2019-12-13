@@ -14,15 +14,9 @@
  * limitations under the License.
  */
 
-provider "google" {
-  version = "~> 2.0"
-  project = "${var.project_id}"
-  region  = "${var.default_region}"
-}
-
 data "google_compute_subnetwork" "application-subnet" {
   name   = "subnet-application"
-  region = "${var.default_region}"
+  region = var.region
 }
 
 /**
@@ -41,15 +35,15 @@ data "template_file" "web_server_startup_script" {
 
   vars = {
     project_id = var.project_id
-    region     = var.default_region
-    subnet     = "${data.google_compute_subnetwork.application-subnet.self_link}"
+    region     = var.region
+    subnet     = data.google_compute_subnetwork.application-subnet.self_link
   }
 }
 
 /**
  * Add 1 Google Compute Engine
  * - Name = terraform-kata-hello-world-{$var.project_id}
- * - Zone = Choose a zone from default_region
+ * - Zone = Choose a zone from region
  * - Machine Type = n1-standard-1
  * - Startup Script = Use template_file
  * - Boot disk image = debian-cloud/debian-9
@@ -61,7 +55,7 @@ data "template_file" "web_server_startup_script" {
  */
 resource "google_compute_instance" "web_server" {
   name                    = "terraform-kata-hello-world-${var.project_id}"
-  zone                    = "${var.default_region}-a"
+  zone                    = "${var.region}-a"
   machine_type            = "n1-standard-1"
   metadata_startup_script = data.template_file.web_server_startup_script.rendered
 
@@ -72,7 +66,7 @@ resource "google_compute_instance" "web_server" {
   }
 
   network_interface {
-    subnetwork = "${data.google_compute_subnetwork.application-subnet.self_link}"
+    subnetwork = data.google_compute_subnetwork.application-subnet.self_link
 
     access_config {
       // Ephemeral IP

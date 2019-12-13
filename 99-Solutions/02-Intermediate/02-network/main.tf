@@ -14,12 +14,6 @@
  * limitations under the License.
  */
 
-provider "google" {
-  version = "~> 2.0"
-  project = "${var.project_id}"
-  region  = "${var.default_region}"
-}
-
 /**
  * Add a custom VPC Network
  * - Name: Read from variable
@@ -30,7 +24,7 @@ provider "google" {
  *
  */
 resource "google_compute_network" "vpc_network" {
-  name                    = "${var.network}"
+  name                    = var.network
   routing_mode            = "GLOBAL"
   auto_create_subnetworks = false
 }
@@ -48,22 +42,22 @@ resource "google_compute_network" "vpc_network" {
  *
  */
 resource "google_compute_subnetwork" "subnets" {
-  count                    = "${length(var.subnetworks)}"
+  count                    = length(var.subnetworks)
   name                     = "subnet-${var.subnetworks[count.index]}"
-  network                  = "${google_compute_network.vpc_network.self_link}"
-  region                   = "${var.default_region}"
+  network                  = google_compute_network.vpc_network.self_link
+  region                   = var.region
   private_ip_google_access = true
 
-  ip_cidr_range = "${var.ip_ranges[count.index]}"
+  ip_cidr_range = var.ip_ranges[count.index]
 
   secondary_ip_range {
     range_name    = "pod"
-    ip_cidr_range = "${var.ip_range_pods[count.index]}"
+    ip_cidr_range = var.ip_range_pods[count.index]
   }
 
   secondary_ip_range {
     range_name    = "service"
-    ip_cidr_range = "${var.ip_range_services[count.index]}"
+    ip_cidr_range = var.ip_range_services[count.index]
   }
 }
 
@@ -78,7 +72,7 @@ resource "google_compute_subnetwork" "subnets" {
  */
 resource "google_compute_firewall" "fw_icmp_ssh" {
   name    = "fw-icmp-ssh"
-  network = "${google_compute_network.vpc_network.self_link}"
+  network = google_compute_network.vpc_network.self_link
 
   allow {
     protocol = "icmp"
@@ -103,7 +97,7 @@ resource "google_compute_firewall" "fw_icmp_ssh" {
  */
 resource "google_compute_firewall" "fw_webserver" {
   name    = "fw-webserver"
-  network = "${google_compute_network.vpc_network.self_link}"
+  network = google_compute_network.vpc_network.self_link
 
   allow {
     protocol = "tcp"
@@ -130,7 +124,7 @@ resource "google_compute_firewall" "fw_webserver" {
  */
 resource "google_compute_firewall" "fw_allow_lb_healthcheck" {
   name    = "allow-lb-healthcheck"
-  network = "${google_compute_network.vpc_network.self_link}"
+  network = google_compute_network.vpc_network.self_link
 
   allow {
     protocol = "tcp"

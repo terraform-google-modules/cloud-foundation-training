@@ -16,7 +16,7 @@
 
 /**
  * Task: Add variable for the following values and use them in main.tf
- * - default_region
+ * - region
  * - logs_bucket
  * - project_id
  * - storage_class

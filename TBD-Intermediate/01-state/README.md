@@ -33,14 +33,14 @@ We will learn about Terraform state management in this lab.
 We will start with creating a GCS bucket manually with the settings below
 * Name = `terraform-kata-import-<YOUR_NAME>-<RANDOM_SUFFIX>`
 * Storage Class = `REGIONAL`
-* Location = `asia-southeast1`
+* Location = `us-west1`
 
 Because GCS bucket name is unique across the entire Google Cloud Storage service, to avoid naming conflict we will use add `-<YOUR_NAME>-<RANDOM_SUFFIX>` to bucket name, choose any `RANDOM_SUFFIX` from previous exercises.
 
 For Google Cloud Console, go to `Storage -> Browser` from the Drop down menu, click `Create Bucket` and follow instruction or use `gsutil` command line tool
 
 ```
-gsutil mb -c regional -l asia-southeast1 gs://terraform-kata-import-<YOUR_NAME>-<RANDOM_SUFFIX>
+gsutil mb -c regional -l us-west1 gs://terraform-kata-import-<YOUR_NAME>-<RANDOM_SUFFIX>
 ```
 
 #### Verify

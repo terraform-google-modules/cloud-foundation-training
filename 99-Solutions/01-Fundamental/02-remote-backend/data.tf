@@ -24,10 +24,10 @@
  */
 data "google_kms_key_ring" "gcs_key_ring" {
   name     = "gcs-keyring"
-  location = "${var.default_region}"
+  location = var.region
 }
 
 data "google_kms_crypto_key" "gcs_crypto_key" {
   name     = "gcs-crypto-key"
-  key_ring = "${data.google_kms_key_ring.gcs_key_ring.self_link}"
+  key_ring = data.google_kms_key_ring.gcs_key_ring.self_link
 }
