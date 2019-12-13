@@ -60,7 +60,7 @@ wget https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_darwin_a
 unzip terraform_0.12.18_darwin_amd64.zip
 ```
 
-3. Verfiy
+3. Verify
 
 ```
 ./terraform version
