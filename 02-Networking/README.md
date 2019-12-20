@@ -30,13 +30,13 @@ At the end of the exercise, you will users in your projects that have been grant
 
 ## Task 1. Create Networking
 
-Use the Cloud Foundation Toolkit [Network module](https://github.com/terraform-google-modules/terraform-google-network) in `main.tf` to setup VPC network.
+Use the Cloud Foundation Toolkit [Network module](https://github.com/terraform-google-modules/terraform-google-network) in `network.tf` to setup VPC network.
 
 ## Task 2. Create Cloud NAT instance
 
-Use the Cloud Foundation Toolkit [Cloud NAT module](https://github.com/terraform-google-modules/terraform-google-cloud-nat) in `main.tf` to create a Cloud NAT instance and a Cloud Router.
+Use the Cloud Foundation Toolkit [Cloud NAT module](https://github.com/terraform-google-modules/terraform-google-cloud-nat) in `network.tf` to create a Cloud NAT instance and a Cloud Router.
 
-## Task 2. Terraform
+## Task 3. Terraform
 
 ### Terraform Init & Plan
 
@@ -55,7 +55,7 @@ Execute previous generated execution plan
 terraform apply plan.out
 ```
 
-## Task 3. Verify
+## Task 4. Verify
 On Google Cloud Console, navigate to **VPC network --> VPC networks**
 
 Review the new network.
