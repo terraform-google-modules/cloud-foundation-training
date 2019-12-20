@@ -14,38 +14,41 @@
  * limitations under the License.
  */
 
+# This startup script creates a web server application used for testing
 data "local_file" "instance_startup_script" {
   filename = "${path.module}/templates/startup.sh"
 }
 
-resource "google_service_account" "instance-group" {
+resource "google_service_account" "instance_group" {
   account_id = "instance-group"
 }
 
-module "instance_template" {
-  source               = "terraform-google-modules/vm/google//modules/instance_template"
-  version              = "~> 1.0.0"
-  subnetwork           = module.network.subnets_names[0]
-  source_image_family  = "debian-9"
-  source_image_project = "debian-cloud"
-  startup_script       = data.local_file.instance_startup_script.content
-  tags                 = ["allow-load-balancer"]
-  service_account = {
-    email  = google_service_account.instance-group.email
-    scopes = ["cloud-platform"]
-  }
-}
+/**
+ * Task 1: Add Instance Template ("instance_template")
+ * - Subnetwork: reference to network created in Lab 2 (module.network.subnet_names[0])
+ * - Source Image Family: "debian-9"
+ * - Source Image Project: "debian-cloud"
+ * - Startup Script: reference to startup script file (data.local_file.instance_startup_script.content)
+ * - Service Account:
+ *   - Email: reference to service account resource (google_service_account.instance_group.email)
+ *   - Scope: ["cloud-platform"]
+ * 
+ * https://github.com/terraform-google-modules/terraform-google-vm/modules/instance_template
+ *
+ */
 
-module "managed_instance_group" {
-  source            = "terraform-google-modules/vm/google//modules/mig"
-  version           = "~> 1.1.1"
-  project_id        = var.project_id
-  region            = var.region
-  target_size       = 2
-  hostname          = "lab-managed-instance"
-  instance_template = module.instance_template.self_link
-  named_ports = [{
-    name = "http"
-    port = 80
-  }]
-}
+ /**
+ * Task 2: Add Managed Instance Group ("managed_instance_group")
+ * - Project ID: Name of Project
+ * - Region: Name of subnet region
+ * - Target Size: Number of instances to create
+ * - Host Name: "lab-managed-instance"
+ * - Instance Template: reference to instance template module (module.instance_template.self_link)
+ * - Name Ports:
+ *   - name: "http"
+ *   - port: 80
+ *
+ * https://github.com/terraform-google-modules/terraform-google-vm/modules/managed_instance_group
+ *
+ */
+
