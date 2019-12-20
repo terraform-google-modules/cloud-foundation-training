@@ -11,7 +11,7 @@ You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-i
 
 This lab helps you create IAM role bindings using Cloud Foundation Toolkit.
 
-At the end of the exercise, you will users in your projects that have been granted access to resources within GCP.
+At the end of the exercise, you will have users in your projects that have been granted access to resources within GCP.
 
 **Note**: You can have input variables as
 
