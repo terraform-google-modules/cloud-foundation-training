@@ -13,16 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-# Task 3: Declare input variables for project and region
+ 
+# Task 3: Assign input variables for project and region
 # https://www.terraform.io/docs/configuration/variables.html
 
-/**
-variable "project_id" {
-  type = string
-}
-
-variable "region" {
-  type = string
-}
-*/
+# project_id=""
+# region=""

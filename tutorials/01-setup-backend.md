@@ -1,7 +1,7 @@
 # Cloud Foundation Toolkit Lab - Setup
 Clone this repository and run locally, or use Cloud Shell to walk through the steps:
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_git_branch=new-templates&cloudshell_open_in_editor=backend.tf&cloudshell_working_dir=terraform&cloudshell_tutorial=..%2Ftutorials%2F01-setup-backend.md)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_git_branch=new-templates&cloudshell_open_in_editor=setup.tf&cloudshell_working_dir=terraform&cloudshell_tutorial=..%2Ftutorials%2F01-setup-backend.md)
 
 ## Prerequisites
 * Google Cloud Platform project with valid billing account
@@ -41,7 +41,7 @@ gcloud config set project $PROJECT_ID
 ### Google Cloud Provider
 Determine your Google Cloud [Project ID](https://cloud.google.com/sdk/gcloud/reference/projects/list), and select a [Region](https://cloud.google.com/compute/docs/regions-zones/#available) to provision resources.
 
-Uncomment the `provider` block in <walkthrough-editor-open-file filePath="main.tf">main.tf</walkthrough-editor-open-file>`, and fill it in to include your Project ID and a Region. Save file.
+Uncomment the `provider` block in <walkthrough-editor-open-file filePath="setup.tf">setup.tf</walkthrough-editor-open-file>, and fill it in to include your Project ID and a Region. Save file.
 
 ### Initialize Terraform
 [terraform init](https://www.terraform.io/docs/commands/init.html) command is used to initialize a working directory containing Terraform configuration files.
@@ -67,7 +67,7 @@ Run the following to see what Terraform attempts to create.
 terraform plan
 ```
 
-Because no resources have been created in your `main.tf` file (all resources are commented out), your successful `terraform plan` output will look like the following:
+Because no resources have been created in your `setup.tf` file (all resources are commented out), your successful `terraform plan` output will look like the following:
 ```
 
 No changes. Infrastructure is up-to-date.
@@ -76,45 +76,68 @@ configuration and real physical resources that exist. As a result, no
 actions need to be performed.
 ```
 
-## Task 3. Create a GCS Bucket
+## Task 3. Create and assign variables
+1. In <walkthrough-editor-open-file filePath="variables.tf">variables.tf</walkthrough-editor-open-file>, create input variables for `project_id` and `region` that you selected in the previous task. This doesn't mean your variables are set yet, this just declares them.
+2. In <walkthrough-editor-open-file filePath="terraform.tfvars">terraform.tfvars</walkthrough-editor-open-file>, set your variables by assigning the values you used in Task 1.
+
+We can now use these variables in our file and avoid repeating the Project ID every time.
+
+Run `terraform plan` to make sure your variables were created and assigned correctly.
+```bash
+terraform plan
+```
+
+## Task 4. Create GCS Buckets
 
 ### Terraform Configuration
-1. In <walkthrough-editor-open-file filePath="variables.tf">variables.tf</walkthrough-editor-open-file>, create input variables for `project_id` and `region` that you selected in the previous task.
+1. In <walkthrough-editor-open-file filePath="setup
+.tf">setup.tf</walkthrough-editor-open-file>, uncomment the [random_id](https://www.terraform.io/docs/providers/random/r/id.html) resource block, which will generate a random character string that you can append to our bucket to help ensure uniqueness.
 
-2. In <walkthrough-editor-open-file filePath="main.tf">main.tf</walkthrough-editor-open-file>, uncomment the [random_id](https://www.terraform.io/docs/providers/random/r/id.html) resource block, which will generate a random character string that you can append to our bucket to help ensure uniqueness.
-
-3. In <walkthrough-editor-open-file filePath="main.tf">main.tf</walkthrough-editor-open-file>, uncomment and fill in the [google_storage_bucket](https://www.terraform.io/docs/providers/google/r/storage_bucket.html) which you'll create to store logs.
+2. In <walkthrough-editor-open-file filePath="setup
+.tf">setup.tf</walkthrough-editor-open-file>, uncomment and fill in the 2 [google_storage_buckets](https://www.terraform.io/docs/providers/google/r/storage_bucket.html) which you'll create to store logs and use for the backend.
 
 *Note the use of the random_id output in our bucket name. We can re-use this string in other Terraform resources*.
 
-#### Terraform Plan
+### Terraform Init
+Re-run `terraform init` to download the plugin that allows us to use the `random` resource.
 
-Update Project ID in `variables.tf`
+```bash
+terraform init
+```
 
+### Terraform Plan
 Validate execution plan will create 1 GCS bucket with Random Suffix
 
-```
+```bash
 terraform plan -out=plan.out
 ```
 
-![image](./images/gcs_bucket_plan.png "Plan Execution")
+Review the Terraform plan that was generated.
 
-#### Terraform Apply
-
+### Terraform Apply
 Execute previous generated execution plan
 
-```
+```bash
 terraform apply plan.out
 ```
-![image](./images/gcs_bucket_apply.png "Create GCS Bucket")
 
-#### Verify
-
-[gsutil](https://cloud.google.com/storage/docs/gsutil) is a Python application that lets you access Cloud Storage from the command line.
-
-It is installed as part of Google Cloud SDK.
-
+If your resources were created successfully, you should see the following message:
 ```
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+
+The state of your infrastructure has been saved to the path
+below. This state is required to modify and destroy your
+infrastructure, so keep it safe. To inspect the complete state
+use the `terraform show` command.
+State path: terraform.tfstate
+```
+
+### Verify
+[gsutil](https://cloud.google.com/storage/docs/gsutil) is a Python application that lets you access Cloud Storage from the command line. It is installed as part of Google Cloud SDK.
+
+Run the following to review your new Google Cloud Storage buckets. Note the random string that was appended to your bucket name.
+
+```bash
 gsutil ls
 ```
 
@@ -124,34 +147,25 @@ Look inside the folder `.terraform/plugins/<YOUR_OS>/` you will see there are no
 
 Inspect `terraform.tfstate` to see resources managed the local Terraform state file
 
+## Task 5. Setup Remote Backend
+You'll want to store state in a GCS bucket instead of the local repository directory, so in this task you'll point Terraform state to the GCS bucket you've created.
 
-#### Terraform Destroy
+In <walkthrough-editor-open-file filePath="backend
+.tf">backend.tf</walkthrough-editor-open-file>, uncomment and fill in the [terraform backend](https://www.terraform.io/docs/backends/types/gcs.html) block so that state is stored in the GCS bucket instead of 
 
-Destroy the resources (random_id, google_storage_bucket)
+Note that you cannot use a reference to the bucket, you must include the actual bucket name in quotes.
 
+### Terraform Init
+Run `terraform init` to migrate state to your new remote backend.
+
+```bash
+terraform init
 ```
-terraform destroy
+
+When prompted, enter `yes` to indicate you'd like to migrate state to the new remote backend.
+
+When successful, the output should indicate the following:
 ```
-
-![image](./images/gcs_bucket_destroy.png "Destroy GCS Bucket")
-
-
-## Task 4. GCS Bucket for Remote State
-
-### Terraform Configuration
-
-1. Fill in Task 4 resource block in `main.tf` to create a Remote State GCS bucket
-2. Fill in `outputs.tf` and output name of the 2 GCS bucket
-
-
-## Task 5. Cloud KMS Key Ring & Key
-
-### Terraform Configuration
-
-1. Fill in Task 5.1 resource blocks in `main.tf` to create a Cloud KMS Key Ring & Key
-2. Fill in `outputs.tf` and output link to Key Ring & Key
-
-
-## Bonus Task. Use local value to reduce repeatition
-
-Find values that are repeating and use local variables instead so it's easier to change in a single place
+Successfully configured the backend "gcs"! Terraform will automatically
+use this backend unless the backend configuration changes.
+```

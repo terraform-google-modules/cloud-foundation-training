@@ -14,71 +14,14 @@
  * limitations under the License.
  */
 
-/**
- * Bonus Task: Use locals to reduce repeatition
- *
- * See https://www.terraform.io/docs/configuration/locals.html
- *
- */
-
-# Task 2: Initialize Terraform
-# https://www.terraform.io/docs/providers/google/index.html
-
-/**
-provider "google" {
-  project     = "" # Replace with Project ID
-  region      = "" # Replace with selected Region
-}
-*/
-
-# Task 3.2: Add random_id resource named suffix
-# https://www.terraform.io/docs/providers/random/r/id.html
-
-/**
-resource "random_id" "suffix" {
-  byte_length = 4
-}
-*/
-
-# Task 3.3: Add GCS bucket for logs
+# Task 5: Add GCS bucket for remote state
 # https://www.terraform.io/docs/providers/google/r/storage_bucket.html
 
 /**
-resource "google_storage_bucket" "image-store" {
-  name          = "cft-lab-logs-<YOUR_NAME>-${random_id.suffix.hex}" # Note the reference to the random_id block
-  location      = "US"
-  force_destroy = true
-  versioning {
-    enabled = "true"
+terraform {
+  backend "gcs" {
+    bucket  = ""
+    prefix  = "terraform/state"
   }
 }
 */
-
-/**
- * Task 4: Add a GCS Bucket for remote state
- * - Name: "cft-tf-lab-state-<YOUR_NAME>-${random_id.suffix.hex}"
- * - Storage Class: Standard
- * - Location: US
- * - Versioning: Enabled
- *
- * https://www.terraform.io/docs/providers/google/r/storage_bucket.html
- *
- */
-
-/**
- * Task 5.1: Add a Cloud KMS Key Ring
- * - Name: "gcs-keyring"
- * - Region: <YOUR_REGION>
- *
- * https://www.terraform.io/docs/providers/google/r/kms_key_ring.html
- *
- */
-
-/**
- * Task 5.1: Add a Cloud KMS Key
- * - Name: "gcs-key"
- * - lifecycle.prevent_destroy: true
- *
- * https://www.terraform.io/docs/providers/google/r/kms_crypto_key.html
- *
- */
