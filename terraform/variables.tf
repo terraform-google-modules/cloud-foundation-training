@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-/**
- * Task: Add variable for the following values and use them in main.tf
- * - region
- * - project_id
- * - storage_class
- *
- * See https://www.terraform.io/docs/configuration/variables.html
- *
- */
+# Task 3.1: Declare input variables for project and region
+# https://www.terraform.io/docs/configuration/variables.html
+
+variable "project_id" {
+  type = string
+}
+
+variable "region" {
+  type = string
+}

@@ -1,7 +1,7 @@
 # Cloud Foundation Toolkit Lab - Setup
 Clone this repository and run locally, or use Cloud Shell to walk through the steps:
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_open_in_editor=main.tf&cloudshell_working_dir=00-Setup%2F&cloudshell_tutorial=README.md&cloudshell_git_branch=new-templates)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_git_branch=new-templates&cloudshell_open_in_editor=backend.tf&cloudshell_working_dir=terraform&cloudshell_tutorial=..%2Ftutorials%2F01-setup-backend.md)
 
 ## Prerequisites
 * Google Cloud Platform project with valid billing account

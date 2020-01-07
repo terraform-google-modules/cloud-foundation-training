@@ -22,6 +22,7 @@
  */
 
 # Task 2: Initialize Terraform
+# https://www.terraform.io/docs/providers/google/index.html
 
 /**
 provider "google" {
@@ -30,28 +31,28 @@ provider "google" {
 }
 */
 
-/**
- * Task 3.1: Add random_id resource named suffix
- * - byte_length = 4
- *
- * The resource random_id generates random numbers that are intended
- * to be used as unique identifiers for other resources.
- *
- * https://www.terraform.io/docs/providers/random/r/id.html
- *
- */
+# Task 3.2: Add random_id resource named suffix
+# https://www.terraform.io/docs/providers/random/r/id.html
 
 /**
- * Task 3.2: Add a GCS Bucket
- * - Name: "cft-tf-lab-logs-<YOUR_NAME>-${random_id.suffix.hex}"
- * - Storage Class: Standard
- * - Location: US
- * - Force Destroy: True
- * - Versioning: Enabled
- *
- * https://www.terraform.io/docs/providers/google/r/storage_bucket.html
- *
- */
+resource "random_id" "suffix" {
+  byte_length = 4
+}
+*/
+
+# Task 3.3: Add GCS bucket for logs
+# https://www.terraform.io/docs/providers/google/r/storage_bucket.html
+
+/**
+resource "google_storage_bucket" "image-store" {
+  name          = "cft-lab-logs-<YOUR_NAME>-${random_id.suffix.hex}" # Note the reference to the random_id block
+  location      = "US"
+  force_destroy = true
+  versioning {
+    enabled = "true"
+  }
+}
+*/
 
 /**
  * Task 4: Add a GCS Bucket for remote state
