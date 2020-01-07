@@ -21,15 +21,14 @@
  *
  */
 
+# Task 2: Initialize Terraform
+
 /**
- * Task 2: Add Google provider configuration
- * - version     = "~> 2.0"
- * - project     = "<YOUR_PROJECT_ID>"
- * - region      = "<YOUR_REGION>"
- *
- * See https://www.terraform.io/docs/providers/google/index.html
- *
- */
+provider "google" {
+  project     = "" # Replace with Project ID
+  region      = "" # Replace with selected Region
+}
+*/
 
 /**
  * Task 3.1: Add random_id resource named suffix
