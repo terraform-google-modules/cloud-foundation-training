@@ -1,5 +1,5 @@
 
-# Cloud Foundation Toolkit Lab - IAM
+# Cloud Foundation Toolkit Lab - 01-IAM
 
 ## Prerequisite
 

@@ -14,4 +14,6 @@
  * limitations under the License.
  */
 
-project_id = "" # Insert Project ID here
+terraform {
+  required_version = ">= 0.12"
+}

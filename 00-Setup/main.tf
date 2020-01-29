@@ -1,5 +1,5 @@
 /**
- * Copyright 2019 Google LLC
+ * Copyright 2018 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,4 +14,11 @@
  * limitations under the License.
  */
 
-project_id = "" # Insert Project ID here
+module "bootstrap" {
+  source               = "github.com/terraform-google-modules/terraform-google-bootstrap"
+  org_id               = var.org_id
+  default_region       = var.region
+  billing_account      = var.billing_account
+  group_org_admins     = var.group_org_admins
+  group_billing_admins = var.group_billing_admins
+}

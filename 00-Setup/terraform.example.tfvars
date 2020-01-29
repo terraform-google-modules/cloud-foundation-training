@@ -14,4 +14,10 @@
  * limitations under the License.
  */
 
-project_id = "" # Insert Project ID here
+org_id = ""
+
+billing_account = ""
+
+group_org_admins = "gcp.admin@example.com"
+
+group_billing_admins = "gcp.billing.admin@example.com"

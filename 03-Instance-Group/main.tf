@@ -37,7 +37,7 @@ resource "google_service_account" "instance_group" {
  *
  */
 
- /**
+/**
  * Task 2: Add Managed Instance Group ("managed_instance_group")
  * - Project ID: Name of Project
  * - Region: Name of subnet region

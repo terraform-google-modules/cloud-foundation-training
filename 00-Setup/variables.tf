@@ -14,4 +14,28 @@
  * limitations under the License.
  */
 
-project_id = "" # Insert Project ID here
+variable "org_id" {
+  description = "GCP Organization ID"
+}
+
+variable "billing_account" {
+  description = "Billing Account ID"
+}
+
+variable "region" {
+  description = "GCP Region"
+  default     = "us-west1"
+}
+
+variable "bucket_name" {
+  description = "GCS Bucket Name for Terraform states"
+  default     = "tf-state"
+}
+
+variable group_org_admins {
+  description = "Group for Organization Admins"
+}
+
+variable group_billing_admins {
+  description = "Group for Billing Admins"
+}

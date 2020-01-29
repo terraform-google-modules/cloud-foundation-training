@@ -1,59 +1,63 @@
 
-# GCP IaC - Terraform and Cloud Foundation Toolkit
+# Cloud Foundation Toolkit Lab - 00-Setup
 
-## **Lab Setup**
+## 00-bootstrap
 
-### **Prerequitsite**
-* GCP Project with valid biiling account
+CFT Organization Bootstrap module will take the following actions:
 
-### **Setup Googel Cloud SDK and environment**
+* Create a new GCP seed project using project_prefix.
+* Enable APIs in the seed project using activate_apis
+* Create a new service account for terraform in seed project
+* Create GCS bucket for Terraform state and grant access to service account
+* Grant IAM permissions required for CFT modules & Organization setup
+    * Overwrite organization wide project creator and billing account creator roles
+    * Grant Organization permissions to service account using sa_org_iam_permissions
+    * Grant access to billing account for service account
+    * Grant Organization permissions to group_org_admins using org_admins_org_iam_permissions
+    * Grant billing permissions to group_billing_admins
+    * (optional) Permissions required for service account impersonation using sa_enable_impersonation
 
-List current configurations
+### Permissions
 
+The user account used for bootstrap setup will need the following permissions
+* **Billing Account Administrator** (roles/billing.admin) on the biiling account provided.
+* **Organization Administrator** (roles/resourcemanager.organizationAdmin) on the organization
+* **Project Creator** (roles/resourcemanager.projectCreator) on the organization
+
+### What You’ll Learn
+
+* [Cloud Foundation Toolkit](https://cloud.google.com/foundation-toolkit/)
+* [terraform-google-bootstrap](https://github.com/terraform-google-modules/terraform-google-bootstrap)
+* [Google Cloud Service Account](https://cloud.google.com/iam/docs/service-accounts)
+
+## Task 1. Setup terraform.tfvars
+
+Make a copy of the example `.tfvar` file and populate details.
 ```
-gcloud config configurations list
-```
-
-Create new configuration for Hands On Lab
-
-```
-gcloud config configurations create gcpiac
-```
-
-Verify new configuration is Active but not logged in
-
-```
-gcloud config configurations list --filter NAME=gcpiac
-```
-
-Login using Hands On Lab project credential
-
-```
-gcloud auth login
-gcloud auth application-default login
-```
-
-Set Project ID and Verify
-
-```
-export PROJECT_ID=[LABS_PROJECT_ID]
-echo ${PROJECT_ID}
+cp terraform.example.tfvars terraform.tfvars
 ```
 
-Set default project
+Organization ID can be found using
+```gcloud organizations list```
+
+## Task 2. Terraform
+
+### Terraform Init & Plan
+
+Init and validate Terraform execution plan
 
 ```
-gcloud config set project ${PROJECT_ID}
+terraform init
+terraform plan -out=plan.out
 ```
 
-(Optional) Set default compute region
+### Terraform Apply
+
+Execute previous generated execution plan
 
 ```
-gcloud config set compute/region us-west1
+terraform apply plan.out
 ```
 
-Verify Google Cloud SDK configuration
-
-```
-gcloud config list
-```
+## Task 3. Verify
+On Google Cloud Console, confirm new project created with a GCS bucket for storing Terraform states named `terraform output gcs_bucket_tfstate`
