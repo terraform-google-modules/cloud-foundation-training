@@ -27,6 +27,20 @@
  * https://github.com/terraform-google-modules/terraform-google-network
  *
  */
+module "network" {
+  source       = "terraform-google-modules/network/google"
+  project_id   = var.project_id
+  network_name = "network"
+  routing_mode = "GLOBAL"
+
+  subnets = [
+    {
+      subnet_name   = "subnet-01"
+      subnet_ip     = "10.0.10.0/24"
+      subnet_region = "us-central1"
+    }
+  ]
+}
 
 /**
  * Task 2: Add Cloud NAT Instance ("cloud-nat")
@@ -39,3 +53,11 @@
  * https://github.com/terraform-google-modules/terraform-google-cloud-nat
  *
  */
+module "cloud-nat" {
+  source        = "terraform-google-modules/cloud-nat/google"
+  project_id    = var.project_id
+  region        = var.region
+  create_router = true
+  router        = "cloud-nat-router"
+  network       = module.network.network_name
+}
