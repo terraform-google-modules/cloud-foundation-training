@@ -16,7 +16,6 @@
 
 module "network" {
   source       = "terraform-google-modules/network/google"
-  version      = "~> 1.4.3"
   project_id   = var.project_id
   network_name = "lab-vpc"
   routing_mode = "GLOBAL"
@@ -24,16 +23,15 @@ module "network" {
     {
       subnet_name   = "subnet-01"
       subnet_ip     = "10.10.10.0/24"
-      subnet_region = "us-west1"
+      subnet_region = var.region
     }
   ]
 }
 
 module "cloud_nat" {
   source        = "terraform-google-modules/cloud-nat/google"
-  version       = "~> 1.1.0"
   project_id    = var.project_id
-  region        = "us-west1"
+  region        = var.region
   name          = "load-balancer-module-nat"
   create_router = "true"
   router        = "lab-router"

@@ -14,14 +14,10 @@
  * limitations under the License.
  */
 
-output "members" {
-  value = module.project-iam-bindings.members
+output "instance_template" {
+  value = module.instance_template.name
 }
 
-output "projects" {
-  value = module.project-iam-bindings.projects
-}
-
-output "roles" {
-  value = module.project-iam-bindings.roles
+output "managed_instance_group" {
+  value = module.managed_instance_group.instance_group
 }
