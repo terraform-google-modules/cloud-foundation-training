@@ -15,8 +15,5 @@
  */
 
 terraform {
-  backend "gcs" {
-    bucket = "" # Replace this with an existing GCS bucket
-    prefix = "terraform/state"
-  }
+  required_version = ">= 0.12"
 }

@@ -14,12 +14,4 @@
  * limitations under the License.
  */
 
-terraform {
-  required_version = ">= 0.12"
-}
-
-provider "google" {
-  project = var.project_id
-  region  = var.region
-  version = "~> 2.0"
-}
+project_id = "" # Insert Project ID here
