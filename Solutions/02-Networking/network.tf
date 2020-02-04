@@ -30,14 +30,13 @@
 module "network" {
   source       = "terraform-google-modules/network/google"
   project_id   = var.project_id
-  network_name = "network"
+  network_name = "lab2-vpc"
   routing_mode = "GLOBAL"
-
   subnets = [
     {
       subnet_name   = "subnet-01"
-      subnet_ip     = "10.0.10.0/24"
-      subnet_region = "us-central1"
+      subnet_ip     = "10.10.10.0/24"
+      subnet_region = var.region
     }
   ]
 }
@@ -48,7 +47,7 @@ module "network" {
  * - Region: use variable specified region
  * - Create Router: true
  * - Router: New router name
- * - Network: Reference to network resource - module.network.network_name
+ * - Network: refer to network created in Task 1 - module.network.network_name
  *
  * https://github.com/terraform-google-modules/terraform-google-cloud-nat
  *

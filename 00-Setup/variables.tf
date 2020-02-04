@@ -24,7 +24,7 @@ variable "billing_account" {
 
 variable "region" {
   description = "GCP Region"
-  default     = "us-west1"
+  default     = "us-east1"
 }
 
 variable "bucket_name" {

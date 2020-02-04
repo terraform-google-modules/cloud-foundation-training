@@ -26,13 +26,14 @@ resource "google_service_account" "instance_group" {
 
 /**
  * Task 1: Add Instance Template ("instance_template")
- * - Subnetwork: reference to network created in Lab 02 (module.network.subnets_self_links[0])
+ * - Subnetwork: refer to network created in network.tf (module.network.subnets_self_links[0])
  * - Source Image Family: "debian-9"
  * - Source Image Project: "debian-cloud"
  * - Startup Script: reference to startup script file (data.local_file.instance_startup_script.content)
  * - Service Account:
  *   - Email: reference to service account resource (google_service_account.instance_group.email)
  *   - Scope: ["cloud-platform"]
+ * - Tag: "allow-load-balancer"]
  *
  * https://github.com/terraform-google-modules/terraform-google-vm/tree/master/modules/instance_template
  *

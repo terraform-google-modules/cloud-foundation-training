@@ -3,9 +3,10 @@
 
 ## Prerequisite
 
-Complete **00-Setup** Labs
+Complete previous labs
+* **[00-Setup](../00-Setup/README.md)**
 
-You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup/README.md](../00-Setup/README.md)
+You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](../00-Setup/README.md)
 
 ## Identity and Access Management
 
@@ -19,12 +20,11 @@ At the end of the exercise, you will have user(s) in your project that have been
 * using [terraform.tfvars](https://www.terraform.io/docs/configuration/variables.html#variable-definitions-tfvars-files)
 * command line argument `-var='key=value'`
 
-### What You’ll Learn
+### What You'll Learn
 
-* [IAM](https://cloud.google.com/iam/docs/overview)
 * [Cloud Foundation Toolkit](https://cloud.google.com/foundation-toolkit/)
 * [terraform-google-iam](https://github.com/terraform-google-modules/terraform-google-iam)
-
+* [IAM](https://cloud.google.com/iam/docs/overview)
 
 ## Task 1. Create IAM Role Bindings
 
@@ -34,7 +34,7 @@ Use the Cloud Foundation Toolkit [IAM module](https://github.com/terraform-googl
 
 ### `backend.tf`
 
-Fill in `backend.tf` the bucket name created from 00-Setup
+Fill in `backend.tf` the bucket name created from [00-Setup](../00-Setup/README.md)
 
 ### `terraform.tfvars`
 
@@ -47,7 +47,7 @@ cp terraform.example.tfvars terraform.tfvars
 
 ### Terraform Init & Plan
 
-Init and validate Terraform execution plan
+Init and review Terraform execution plan
 
 ```
 terraform init
@@ -63,6 +63,15 @@ terraform apply plan.out
 ```
 
 ## Task 4. Verify
-On Google Cloud Console, under the project specified, nagivate to **IAM & admin -> IAM**
+
+On [Google Cloud Console](https://console.cloud.google.com/), under the project specified, nagivate to **IAM & admin -> IAM**
 
 Review the user permissions under **Members** and confirm **Compute Network Admin** is added
+
+## Task 5. Clean Up
+
+Destroy resources created by Terraform
+
+```
+terraform destroy
+```

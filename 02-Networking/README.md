@@ -3,9 +3,11 @@
 
 ## Prerequisite
 
-Complete **00-Setup** Labs
+Complete previous labs
+* **[00-Setup](../00-Setup/README.md)**
+* **[01-IAM](../01-IAM/README.md)**
 
-You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup/README.md](../00-Setup/README.md)
+You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](../00-Setup/README.md)
 
 ## Networking
 
@@ -19,14 +21,13 @@ At the end of the exercise, you will have a VPC network with 1 subnet and 1 Clou
 * using [terraform.tfvars](https://www.terraform.io/docs/configuration/variables.html#variable-definitions-tfvars-files)
 * command line argument `-var='key=value'`
 
-### What You’ll Learn
+### What You'll Learn
 
-* [VPC](https://cloud.google.com/vpc/docs/overview)
-* [Cloud NAT](https://cloud.google.com/nat/docs/overview)
 * [Cloud Foundation Toolkit](https://cloud.google.com/foundation-toolkit/)
 * [terraform-google-vpc](https://github.com/terraform-google-modules/terraform-google-vpc)
+* [VPC](https://cloud.google.com/vpc/docs/overview)
 * [terraform-google-cloud-nat](https://github.com/terraform-google-modules/terraform-google-vpc)
-
+* [Cloud NAT](https://cloud.google.com/nat/docs/overview)
 
 ## Task 1. Create Networking
 
@@ -40,7 +41,7 @@ Use the Cloud Foundation Toolkit [Cloud NAT module](https://github.com/terraform
 
 ### `backend.tf`
 
-Fill in `backend.tf` the bucket name created from 00-Setup
+Fill in `backend.tf` the bucket name created from [00-Setup](../00-Setup/README.md)
 
 ### `terraform.tfvars`
 
@@ -53,7 +54,7 @@ cp terraform.example.tfvars terraform.tfvars
 
 ### Terraform Init & Plan
 
-Init and validate Terraform execution plan
+Init and review Terraform execution plan
 
 ```
 terraform init
@@ -69,10 +70,19 @@ terraform apply plan.out
 ```
 
 ## Task 5. Verify
-On Google Cloud Console, navigate to **VPC network --> VPC networks**
 
-Review the new network.
+On [Google Cloud Console](https://console.cloud.google.com/), navigate to **VPC network -> VPC networks**
 
-On Google Cloud Console, navigate to **Network services --> Cloud NAT**
+Review the new **VPC network**.
 
-Review the new Cloud NAT and Cloud Router.
+Next navigate to **Network services -> Cloud NAT**
+
+Review the new **Cloud NAT** and **Cloud Router**
+
+## Task 6. Clean Up
+
+Destroy resources created by Terraform
+
+```
+terraform destroy
+```

@@ -17,7 +17,7 @@
 module "network" {
   source       = "terraform-google-modules/network/google"
   project_id   = var.project_id
-  network_name = "lab-vpc"
+  network_name = "lab3-vpc"
   routing_mode = "GLOBAL"
   subnets = [
     {
