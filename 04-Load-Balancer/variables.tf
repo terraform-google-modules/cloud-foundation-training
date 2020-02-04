@@ -20,5 +20,10 @@ variable "project_id" {
 
 variable "region" {
   description = "GCP Region"
-  default     = "us-west1"
+  default     = "us-east1"
+}
+
+variable "target_tags" {
+  description = "Network Tags to add to Managed Instance Group VMs"
+  default     = ["allow-load-balancer"]
 }

@@ -14,14 +14,18 @@
  * limitations under the License.
  */
 
-output "members" {
-  value = module.project-iam-bindings.members
+output "load_balancer_ip" {
+  value = module.load_balancer.external_ip
 }
 
-output "projects" {
-  value = module.project-iam-bindings.projects
+output "backend_services" {
+  value = module.load_balancer.backend_services
 }
 
-output "roles" {
-  value = module.project-iam-bindings.roles
+output "http_proxy" {
+  value = module.load_balancer.http_proxy
+}
+
+output "https_proxy" {
+  value = module.load_balancer.https_proxy
 }
