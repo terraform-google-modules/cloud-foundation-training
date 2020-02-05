@@ -14,9 +14,26 @@
  * limitations under the License.
  */
 
-terraform {
-  backend "gcs" {
-    bucket = "" # Replace this with an existing GCS bucket
-    prefix = "terraform/state"
+/**
+ * Task 1: Add IAM Role Bindings
+ * - Name: project-iam-bindings
+ * - Projects: Name of my project
+ * - Mode: Additive
+ * - Bindings:
+ *   - Role: roles/compute.networkAdmin
+ *   - Members: user:username@email.com
+ *
+ * https://github.com/terraform-google-modules/terraform-google-iam
+ *
+ */
+module "project-iam-bindings" {
+  source   = "terraform-google-modules/iam/google//modules/projects_iam"
+  projects = [var.project_id]
+  mode     = "additive"
+
+  bindings = {
+    "roles/compute.networkAdmin" = [
+      "user:my-user@my-org.com",
+    ]
   }
 }

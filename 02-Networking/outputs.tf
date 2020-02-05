@@ -1,5 +1,5 @@
 /**
- * Copyright 2019 Google LLC
+ * Copyright 2018 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,18 @@
  * limitations under the License.
  */
 
-/**
- * Task 2: Add Data source to read following resources created from previous exercise
- * - KMS Key Ring
- * - KMS Key
- *
- * https://www.terraform.io/docs/providers/google/d/google_kms_crypto_key.html
- *
- */
+output "network" {
+  value = module.network.network_name
+}
+
+output "subnets" {
+  value = module.network.subnets_names
+}
+
+output "cloud-nat" {
+  value = module.cloud-nat.name
+}
+
+output "cloud-nat-router" {
+  value = module.cloud-nat.router_name
+}

@@ -20,5 +20,5 @@ variable "project_id" {
 
 variable "region" {
   description = "GCP Region"
-  default     = "us-west1"
+  default     = "us-east1"
 }

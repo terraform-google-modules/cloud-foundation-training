@@ -26,7 +26,7 @@ resource "google_service_account" "instance_group" {
 
 /**
  * Task 1: Add Instance Template ("instance_template")
- * - Subnetwork: refer to network created in network.tf (module.network.subnets_self_links[0])
+ * - Subnetwork: reference to network created in network.tf (module.network.subnets_self_links[0])
  * - Source Image Family: "debian-9"
  * - Source Image Project: "debian-cloud"
  * - Startup Script: reference to startup script file (data.local_file.instance_startup_script.content)
@@ -38,6 +38,19 @@ resource "google_service_account" "instance_group" {
  * https://github.com/terraform-google-modules/terraform-google-vm/tree/master/modules/instance_template
  *
  */
+module "instance_template" {
+  source               = "terraform-google-modules/vm/google//modules/instance_template"
+  project_id           = var.project_id
+  subnetwork           = module.network.subnets_self_links[0]
+  source_image_family  = "debian-9"
+  source_image_project = "debian-cloud"
+  startup_script       = data.local_file.instance_startup_script.content
+  service_account = {
+    email  = google_service_account.instance_group.email
+    scopes = ["cloud-platform"]
+  }
+  tags = ["allow-load-balancer"]
+}
 
 /**
  * Task 2: Add Managed Instance Group ("managed_instance_group")
@@ -53,3 +66,15 @@ resource "google_service_account" "instance_group" {
  * https://github.com/terraform-google-modules/terraform-google-vm/tree/master/modules/mig
  *
  */
+module "managed_instance_group" {
+  source            = "terraform-google-modules/vm/google//modules/mig"
+  project_id        = var.project_id
+  region            = var.region
+  target_size       = 2
+  hostname          = "lab-managed-instance"
+  instance_template = module.instance_template.self_link
+  named_ports = [{
+    name = "http"
+    port = 80
+  }]
+}

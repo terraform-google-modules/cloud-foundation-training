@@ -16,7 +16,7 @@
 
 terraform {
   backend "gcs" {
-    bucket = "" # Replace this with an existing GCS bucket
-    prefix = "terraform/state"
+    bucket = "" # Replace this with GCS bucket from 00-Setup
+    prefix = "terraform/state/04/"
   }
 }

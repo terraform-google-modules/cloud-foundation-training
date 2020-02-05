@@ -1,5 +1,5 @@
 /**
- * Copyright 2019 Google LLC
+ * Copyright 2018 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-terraform {
-  backend "gcs" {
-    bucket = "" # Replace this with GCS bucket from 00-Setup
-    prefix = "terraform/state/03/"
-  }
+output "instance_template" {
+  value = module.instance_template.name
+}
+
+output "managed_instance_group" {
+  value = module.managed_instance_group.instance_group
 }

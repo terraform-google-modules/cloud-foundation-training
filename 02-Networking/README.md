@@ -1,17 +1,19 @@
 
-# Cloud Foundation Toolkit Lab
+# Cloud Foundation Toolkit Lab - 02-Networking
 
 ## Prerequisite
 
-Complete **Setup** Labs
+Complete previous labs
+* **[00-Setup](../00-Setup/README.md)**
+* **[01-IAM](../01-IAM/README.md)**
 
-You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup/README.md](../00-Setup/README.md)
+You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](../00-Setup/README.md)
 
 ## Networking
 
-This lab helps you create IAM role bindings using Cloud Foundation Toolkit.
+This lab helps you create VPC network and Cloud NAT using Cloud Foundation Toolkit.
 
-At the end of the exercise, you will users in your projects that have been granted access to resources within GCP.
+At the end of the exercise, you will have a VPC network with 1 subnet and 1 Cloud NAT in your project.
 
 **Note**: You can have input variables as
 
@@ -19,14 +21,13 @@ At the end of the exercise, you will users in your projects that have been grant
 * using [terraform.tfvars](https://www.terraform.io/docs/configuration/variables.html#variable-definitions-tfvars-files)
 * command line argument `-var='key=value'`
 
-### What You’ll Learn
+### What You'll Learn
 
-* [VPC](https://cloud.google.com/vpc/docs/overview)
-* [Cloud NAT](https://cloud.google.com/nat/docs/overview)
 * [Cloud Foundation Toolkit](https://cloud.google.com/foundation-toolkit/)
 * [terraform-google-vpc](https://github.com/terraform-google-modules/terraform-google-vpc)
+* [VPC](https://cloud.google.com/vpc/docs/overview)
 * [terraform-google-cloud-nat](https://github.com/terraform-google-modules/terraform-google-vpc)
-
+* [Cloud NAT](https://cloud.google.com/nat/docs/overview)
 
 ## Task 1. Create Networking
 
@@ -36,11 +37,24 @@ Use the Cloud Foundation Toolkit [Network module](https://github.com/terraform-g
 
 Use the Cloud Foundation Toolkit [Cloud NAT module](https://github.com/terraform-google-modules/terraform-google-cloud-nat) in `network.tf` to create a Cloud NAT instance and a Cloud Router.
 
-## Task 3. Terraform
+## Task 3. Configurations
+
+### `backend.tf`
+
+Fill in `backend.tf` the bucket name created from [00-Setup](../00-Setup/README.md)
+
+### `terraform.tfvars`
+
+Make a copy of the example `.tfvar` file and populate details.
+```
+cp terraform.example.tfvars terraform.tfvars
+```
+
+## Task 4. Terraform
 
 ### Terraform Init & Plan
 
-Init and validate Terraform execution plan
+Init and review Terraform execution plan
 
 ```
 terraform init
@@ -55,7 +69,20 @@ Execute previous generated execution plan
 terraform apply plan.out
 ```
 
-## Task 4. Verify
-On Google Cloud Console, navigate to **VPC network --> VPC networks**
+## Task 5. Verify
 
-Review the new network.
+On [Google Cloud Console](https://console.cloud.google.com/), navigate to **VPC network -> VPC networks**
+
+Review the new **VPC network**.
+
+Next navigate to **Network services -> Cloud NAT**
+
+Review the new **Cloud NAT** and **Cloud Router**
+
+## Task 6. Clean Up
+
+Destroy resources created by Terraform
+
+```
+terraform destroy
+```

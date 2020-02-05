@@ -14,11 +14,6 @@
  * limitations under the License.
  */
 
-/**
- * Task 1: Add GCS remote backend configuration
- * - bucket = <STATE_BUCKET_FROM_01>
- * - prefix = "01-fundamental/02-remote-backend/"
- *
- * See https://www.terraform.io/docs/backends/types/gcs.html
- *
- */
+terraform {
+  required_version = ">= 0.12"
+}

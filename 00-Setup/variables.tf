@@ -14,9 +14,28 @@
  * limitations under the License.
  */
 
-terraform {
-  backend "gcs" {
-    bucket = "" # Replace this with GCS bucket from 00-Setup
-    prefix = "terraform/state/03/"
-  }
+variable "org_id" {
+  description = "GCP Organization ID"
+}
+
+variable "billing_account" {
+  description = "Billing Account ID"
+}
+
+variable "region" {
+  description = "GCP Region"
+  default     = "us-east1"
+}
+
+variable "bucket_name" {
+  description = "GCS Bucket Name for Terraform states"
+  default     = "tf-state"
+}
+
+variable group_org_admins {
+  description = "Group for Organization Admins"
+}
+
+variable group_billing_admins {
+  description = "Group for Billing Admins"
 }

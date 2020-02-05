@@ -17,6 +17,6 @@
 terraform {
   backend "gcs" {
     bucket = "" # Replace this with GCS bucket from 00-Setup
-    prefix = "terraform/state/03/"
+    prefix = "terraform/state/01/"
   }
 }

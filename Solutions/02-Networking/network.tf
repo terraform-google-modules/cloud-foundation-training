@@ -14,10 +14,23 @@
  * limitations under the License.
  */
 
+/**
+ * Task 1: Add Network ("network")
+ * - Network Name: network
+ * - Project: Name of my project
+ * - Routing Mode: Global
+ * - Subnets:
+ *   - Subnet Name: subnet-01
+ *   - Subnet IP: 10.0.10.0/24
+ *   - Subnet Region: use variable specified region
+ *
+ * https://github.com/terraform-google-modules/terraform-google-network
+ *
+ */
 module "network" {
   source       = "terraform-google-modules/network/google"
   project_id   = var.project_id
-  network_name = "lab4-vpc"
+  network_name = "lab2-vpc"
   routing_mode = "GLOBAL"
   subnets = [
     {
@@ -28,12 +41,22 @@ module "network" {
   ]
 }
 
-module "cloud_nat" {
+/**
+ * Task 2: Add Cloud NAT Instance ("cloud-nat")
+ * - Project: Name of my project
+ * - Region: use variable specified region
+ * - Create Router: true
+ * - Router: New router name
+ * - Network: refer to network created in Task 1 - module.network.network_name
+ *
+ * https://github.com/terraform-google-modules/terraform-google-cloud-nat
+ *
+ */
+module "cloud-nat" {
   source        = "terraform-google-modules/cloud-nat/google"
   project_id    = var.project_id
   region        = var.region
-  name          = "load-balancer-module-nat"
-  create_router = "true"
-  router        = "lab-router"
+  create_router = true
+  router        = "cloud-nat-router"
   network       = module.network.network_name
 }

@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-terraform {
-  required_version = ">= 0.12"
+variable "project_id" {
+  description = "GCP Project ID"
 }
 
-provider "google" {
-  project = var.project_id
-  region  = var.region
-  version = "~> 2.0"
+variable "region" {
+  description = "GCP Region"
+  default     = "us-east1"
 }

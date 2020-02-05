@@ -14,13 +14,4 @@
  * limitations under the License.
  */
 
-/**
- * Task: Add variable for the following values and use them in main.tf
- * - region
- * - logs_bucket
- * - project_id
- * - storage_class
- *
- * See https://www.terraform.io/docs/configuration/variables.html
- *
- */
+project_id = "" # Insert Project ID here

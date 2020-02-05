@@ -14,13 +14,10 @@
  * limitations under the License.
  */
 
-/**
- * Task 4.2, 5.2: Add output for the following resources
- * - Logs GCS bucket name
- * - Remote State GCS bucket name
- * - KMS Key Ring link
- * - KMS Key link
- *
- * See https://www.terraform.io/docs/configuration/outputs.html
- *
- */
+org_id = ""
+
+billing_account = ""
+
+group_org_admins = "gcp.admin@example.com"
+
+group_billing_admins = "gcp.billing.admin@example.com"
