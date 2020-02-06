@@ -20,7 +20,7 @@
  * - projects: [var.project_id]
  * - mode: "additive"
  * - bindings:
- *   - Members: "user:username@email.com"
+ *   - Members: "serviceAccount:cft-training@${var.project_id}.iam.gserviceaccount.com"
  *   - Role:
  *     - "roles/cloudfunctions.admin"
  *     - "roles/compute.admin"
@@ -39,26 +39,26 @@ module "project_iam_bindings" {
 
   bindings = {
     "roles/cloudfunctions.admin" = [
-      local.my_user,
+      local.iam_member,
     ]
     "roles/compute.admin" = [
-      local.my_user,
+      local.iam_member,
     ]
     "roles/compute.networkAdmin" = [
-      local.my_user,
+      local.iam_member,
     ]
     "roles/iam.serviceAccountAdmin" = [
-      local.my_user,
+      local.iam_member,
     ]
     "roles/serviceusage.serviceUsageAdmin" = [
-      local.my_user,
+      local.iam_member,
     ]
     "roles/storage.admin" = [
-      local.my_user,
+      local.iam_member,
     ]
   }
 }
 
 locals {
-  my_user = "user:username@email.com"
+  iam_member = "serviceAccount:cft-training@${var.project_id}.iam.gserviceaccount.com"
 }

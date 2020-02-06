@@ -27,7 +27,7 @@ resource "google_service_account" "instance_group" {
 resource "google_service_account_iam_member" "service_account_user" {
   service_account_id = google_service_account.instance_group.name
   role               = "roles/iam.serviceAccountUser"
-  member             = "user:username@email.com"
+  member             = "serviceAccount:cft-training@${var.project_id}.iam.gserviceaccount.com"
 }
 
 module "instance_template" {
