@@ -15,25 +15,50 @@
  */
 
 /**
- * Task 1: Add IAM Role Bindings
- * - Name: project-iam-bindings
- * - Projects: Name of my project
- * - Mode: Additive
- * - Bindings:
- *   - Role: roles/compute.networkAdmin
- *   - Members: user:username@email.com
+ * Task 1: Add IAM Role Bindings (project_iam_bindings)
+ * - source: "terraform-google-modules/iam/google//modules/projects_iam"
+ * - projects: [var.project_id]
+ * - mode: "additive"
+ * - bindings:
+ *   - Members: "user:username@email.com"
+ *   - Role:
+ *     - "roles/cloudfunctions.admin"
+ *     - "roles/compute.admin"
+ *     - "roles/compute.networkAdmin"
+ *     - "roles/iam.serviceAccountAdmin"
+ *     - "roles/serviceusage.serviceUsageAdmin"
+ *     - "roles/storage.admin"
  *
- * https://github.com/terraform-google-modules/terraform-google-iam
+ * Reference - https://github.com/terraform-google-modules/terraform-google-iam
  *
  */
-module "project-iam-bindings" {
+module "project_iam_bindings" {
   source   = "terraform-google-modules/iam/google//modules/projects_iam"
   projects = [var.project_id]
   mode     = "additive"
 
   bindings = {
+    "roles/cloudfunctions.admin" = [
+      local.my_user,
+    ]
+    "roles/compute.admin" = [
+      local.my_user,
+    ]
     "roles/compute.networkAdmin" = [
-      "user:my-user@my-org.com",
+      local.my_user,
+    ]
+    "roles/iam.serviceAccountAdmin" = [
+      local.my_user,
+    ]
+    "roles/serviceusage.serviceUsageAdmin" = [
+      local.my_user,
+    ]
+    "roles/storage.admin" = [
+      local.my_user,
     ]
   }
+}
+
+locals {
+  my_user = "user:username@email.com"
 }
