@@ -16,7 +16,7 @@
 
 terraform {
   backend "gcs" {
-    bucket = "" # Replace this with GCS bucket from 00-Setup
+    bucket = "" # GCS bucket for Terraform Remote State
     prefix = "terraform/state/03/"
   }
 }
