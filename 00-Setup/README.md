@@ -27,7 +27,7 @@ Go to [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive
 **01 - Environment Variables**
 * Replace **YOUR_PROJECT_ID** with the [GCP Project ID](https://cloud.google.com/resource-manager/docs/creating-managing-projects#before_you_begin) you are using for the training
 * Replace **YOUR_GCP_ACCOUNT_EMAIL** with your GCP account
-* **SERVICE_ACCOUNT** is the [GCP Service Account](https://cloud.google.com/iam/docs/understanding-service-accounts) we will use to run Terraform with
+* **SERVICE_ACCOUNT** is the [GCP Service Account](https://cloud.google.com/iam/docs/understanding-service-accounts) to run Terraform with
 ```
 export PROJECT_ID=YOUR_PROJECT_ID
 export GCP_ACCOUNT_EMAIL=YOUR_GCP_ACCOUNT_EMAIL
@@ -76,18 +76,21 @@ You will need add the following IAM policy binding to your training project
 * **Service Usage Admin** roles/serviceusage.serviceUsageAdmin
 * **Service Account Admin** roles/iam.serviceAccountAdmin
 * **Service Account Key Admin** roles/iam.serviceAccountKeyAdmin
-
+* **Storage Admin** roles/storage.admin
+* **Logging Admin** logging.admin
 ```
+gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="user:${GCP_ACCOUNT_EMAIL}" --role="roles/serviceusage.serviceUsageAdmin"
 gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="user:${GCP_ACCOUNT_EMAIL}" --role="roles/iam.serviceAccountAdmin"
 gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="user:${GCP_ACCOUNT_EMAIL}" --role="roles/iam.serviceAccountKeyAdmin"
-gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="user:${GCP_ACCOUNT_EMAIL}" --role="roles/serviceusage.serviceUsageAdmin"
+gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="user:${GCP_ACCOUNT_EMAIL}" --role="roles/storage.admin"
+gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="user:${GCP_ACCOUNT_EMAIL}" --role="roles/logging.admin"
 ```
 
 ### 3.3 Service Account
 
 **Note**: **Skip** this section if you are attending an organized training session.
 
-Folling the [least privilidge principle](https://cloud.google.com/blog/products/identity-security/dont-get-pwned-practicing-the-principle-of-least-privilege), we are going to create a separate service account to run Terraform with.
+Following the [least privilidge principle](https://cloud.google.com/blog/products/identity-security/dont-get-pwned-practicing-the-principle-of-least-privilege), create a separate Service Account to run Terraform with.
 
 #### Create Service Account
 ```
@@ -101,9 +104,19 @@ gcloud iam service-accounts list --filter="EMAIL=${SERVICE_ACCOUNT}"
 
 #### Grant IAM Role
 
-Grant Project IAM Admin role to the Service Account
+Grant IAM roles to the Service Account
+* Project IAM Admin
+* Storage Admin
 ```
 gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="serviceAccount:${SERVICE_ACCOUNT}" --role="roles/resourcemanager.projectIamAdmin"
+gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="serviceAccount:${SERVICE_ACCOUNT}" --role="roles/storage.admin"
+```
+
+### 3.4 GCS bucket
+
+Create a GCS bucket to store Terraform [Remote State](https://www.terraform.io/docs/state/remote.html)
+```
+gsutil mb -p ${PROJECT_ID} gs://${PROJECT_ID}-tfstate
 ```
 
 ## 4. Prepare Terraform Credential
@@ -112,7 +125,7 @@ Make sure you are in the cloud-foundation-training repository root directory
 
 #### Service Account key
 
-We are going to create and download a service account key for Terraform
+Create and download a service account key for Terraform
 ```
 gcloud iam service-accounts keys create cft-training.json --iam-account=${SERVICE_ACCOUNT}
 ```
@@ -123,4 +136,3 @@ Supply the key to Terraform using the environment variable GOOGLE_CLOUD_KEYFILE_
 ```
 export GOOGLE_CLOUD_KEYFILE_JSON="$(pwd)/cft-training.json"
 ```
-
