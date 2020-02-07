@@ -7,8 +7,8 @@
 Complete previous labs:
 
 * [00-Setup](../00-Setup/README.md)
-* [01-IAM](../01-IAM/README.md)**
-* [02-Networking](../02-Networking/README.md)**
+* [01-IAM](../01-IAM/README.md)
+* [02-Networking](../02-Networking/README.md)
 
 You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](../00-Setup/README.md)
 
@@ -28,19 +28,19 @@ At the end of this exercise, you'll have a set of VM instances provisioned on th
 ## Task 1. Create Instance Template
 
 Use the Cloud Foundation Toolkit [Instance Template](https://github.com/terraform-google-modules/terraform-google-vm/modules/instance_template) module in <walkthrough-editor-open-file filePath="main.tf">
-`main.tf`</walkthrough-editor-open-file> to create an Instance Template
+main.tf</walkthrough-editor-open-file> to create an Instance Template
 
 ## Task 2. Create Managed Instance Group
 
 Use the Cloud Foundation Toolkit [Managed Instance Group](https://github.com/terraform-google-modules/terraform-google-vm/modules/mig) module in <walkthrough-editor-open-file filePath="main.tf">
-`main.tf`</walkthrough-editor-open-file> to create a Managed Instance Group
+main.tf</walkthrough-editor-open-file> to create a Managed Instance Group
 
 ## Task 3. Configurations
 
 ### `backend.tf`
 
 Fill in <walkthrough-editor-open-file filePath="backend.tf">
-`backend.tf`</walkthrough-editor-open-file> the bucket name created from [00-Setup](../00-Setup/README.md)
+backend.tf</walkthrough-editor-open-file> the bucket name created from [00-Setup](../00-Setup/README.md)
 
 ### `terraform.tfvars`
 
@@ -89,3 +89,9 @@ Destroy resources created by Terraform
 ```bash
 terraform destroy
 ```
+
+## Congratulations
+
+<walkthrough-conclusion-trophy></walkthrough-conclusion-trophy>
+
+You’re all set! You can now move on to the next lab.
