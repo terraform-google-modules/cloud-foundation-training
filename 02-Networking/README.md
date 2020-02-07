@@ -9,25 +9,19 @@ Complete previous labs
 
 You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](../00-Setup/README.md)
 
-## Networking
-
-This lab helps you create VPC network and Cloud NAT using Cloud Foundation Toolkit.
-
-At the end of the exercise, you will have a VPC network with 1 subnet and 1 Cloud NAT in your project.
-
-**Note**: You can have input variables as
-
-* **default** in `variables.tf`
-* using [terraform.tfvars](https://www.terraform.io/docs/configuration/variables.html#variable-definitions-tfvars-files)
-* command line argument `-var='key=value'`
-
-### What You'll Learn
+## What You'll Learn
 
 * [Cloud Foundation Toolkit](https://cloud.google.com/foundation-toolkit/)
 * [terraform-google-vpc](https://github.com/terraform-google-modules/terraform-google-vpc)
 * [VPC](https://cloud.google.com/vpc/docs/overview)
 * [terraform-google-cloud-nat](https://github.com/terraform-google-modules/terraform-google-vpc)
 * [Cloud NAT](https://cloud.google.com/nat/docs/overview)
+
+## Networking
+
+This lab helps you create VPC network and Cloud NAT using Cloud Foundation Toolkit.
+
+At the end of the exercise, you will have a VPC network with 1 subnet and 1 Cloud NAT in your project.
 
 ## Task 1. Create Networking
 
@@ -49,6 +43,12 @@ Make a copy of the example `.tfvar` file and populate details.
 ```
 cp terraform.example.tfvars terraform.tfvars
 ```
+
+**Note**: You can have input variables as
+
+* **default** in `variables.tf`
+* using [terraform.tfvars](https://www.terraform.io/docs/configuration/variables.html#variable-definitions-tfvars-files)
+* command line argument `-var='key=value'`
 
 ## Task 4. Terraform
 

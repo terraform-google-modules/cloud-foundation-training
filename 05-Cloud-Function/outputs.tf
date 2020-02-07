@@ -14,10 +14,14 @@
  * limitations under the License.
  */
 
-org_id = ""
+output "storage_bucket_image_upload" {
+  value = google_storage_bucket.image_upload.name
+}
 
-billing_account = ""
+output "storage_bucket_image_processed" {
+  value = google_storage_bucket.image_processed.name
+}
 
-group_org_admins = "gcp.admin@example.com"
-
-group_billing_admins = "gcp.billing.admin@example.com"
+output "cloud_function_name" {
+  value = module.image_processing_function.name
+}

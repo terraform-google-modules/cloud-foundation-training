@@ -11,23 +11,17 @@ Complete previous labs
 
 You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](../00-Setup/README.md)
 
+## What You'll Learn
+
+* [Cloud Foundation Toolkit](https://cloud.google.com/foundation-toolkit/)
+* [terraform-google-lb-http](https://github.com/terraform-google-modules/terraform-google-lb-http)
+* [Global HTTP(S) Load Balancer](https://cloud.google.com/load-balancing/docs/https)
+
 ## Global HTTP(S) Load Balancer
 
 This lab helps you create a Global HTTP(S) Load Balancer using Cloud Foundation Toolkit.
 
 At the end of this exercise, you'll have a global HTTP(S) Load Balancer with a single external IP backed by the Managed Instance Group VM instances you've created in the [03-Instance-Group](../03-Instance-Group/README.md) labs.
-
-**Note**: You can have input variables as
-
-* **default** in `variables.tf`
-* using [terraform.tfvars](https://www.terraform.io/docs/configuration/variables.html#variable-definitions-tfvars-files)
-* command line argument `-var='key=value'`
-
-### What You'll Learn
-
-* [Cloud Foundation Toolkit](https://cloud.google.com/foundation-toolkit/)
-* [terraform-google-lb-http](https://github.com/terraform-google-modules/terraform-google-lb-http)
-* [Global HTTP(S) Load Balancer](https://cloud.google.com/load-balancing/docs/https)
 
 ## Task 1. Create HTTP Load Balancer
 
@@ -47,6 +41,12 @@ Make a copy of the example `.tfvar` file and populate details.
 ```
 cp terraform.example.tfvars terraform.tfvars
 ```
+
+**Note**: You can have input variables as
+
+* **default** in `variables.tf`
+* using [terraform.tfvars](https://www.terraform.io/docs/configuration/variables.html#variable-definitions-tfvars-files)
+* command line argument `-var='key=value'`
 
 ## Task 3. Terraform
 

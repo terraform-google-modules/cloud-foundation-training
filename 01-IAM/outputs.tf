@@ -15,13 +15,13 @@
  */
 
 output "members" {
-  value = module.project-iam-bindings.members
+  value = module.project_iam_bindings.members
 }
 
 output "projects" {
-  value = module.project-iam-bindings.projects
+  value = module.project_iam_bindings.projects
 }
 
 output "roles" {
-  value = module.project-iam-bindings.roles
+  value = module.project_iam_bindings.roles
 }

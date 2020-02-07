@@ -14,24 +14,6 @@
  * limitations under the License.
  */
 
-/**
- * Task 1: Add IAM Role Bindings (project_iam_bindings)
- * - source: "terraform-google-modules/iam/google//modules/projects_iam"
- * - projects: [var.project_id]
- * - mode: "additive"
- * - bindings:
- *   - Members: "serviceAccount:cft-training@${var.project_id}.iam.gserviceaccount.com"
- *   - Role:
- *     - "roles/cloudfunctions.admin"
- *     - "roles/compute.admin"
- *     - "roles/compute.networkAdmin"
- *     - "roles/iam.serviceAccountAdmin"
- *     - "roles/serviceusage.serviceUsageAdmin"
- *     - "roles/storage.admin"
- *
- * Reference - https://github.com/terraform-google-modules/terraform-google-iam
- *
- */
 module "project_iam_bindings" {
   source   = "terraform-google-modules/iam/google//modules/projects_iam"
   projects = [var.project_id]
