@@ -1,24 +1,25 @@
 
 # Cloud Foundation Toolkit Lab - 01-IAM
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_git_branch=walkthroughs&cloudshell_tutorial=README.md&cloudshell_working_dir=01-IAM)
 
 ## Prerequisite
 
-Complete previous labs
-* **[00-Setup](../00-Setup/README.md)**
+Complete previous labs:
+* [00-Setup](../00-Setup/README.md)
 
 You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](../00-Setup/README.md)
-
-## What You'll Learn
-
-* [Cloud Foundation Toolkit](https://cloud.google.com/foundation-toolkit/)
-* [terraform-google-iam](https://github.com/terraform-google-modules/terraform-google-iam)
-* [IAM](https://cloud.google.com/iam/docs/overview)
 
 ## Identity and Access Management
 
 This lab helps you create IAM role bindings using Cloud Foundation Toolkit.
 
 At the end of the exercise, you will have user(s) in your project that have been granted access to resources within GCP.
+
+### What You'll Learn
+
+* [Cloud Foundation Toolkit](https://cloud.google.com/foundation-toolkit/)
+* [terraform-google-iam](https://github.com/terraform-google-modules/terraform-google-iam)
+* [IAM](https://cloud.google.com/iam/docs/overview)
 
 ## Task 1. Create IAM Role Bindings
 
@@ -33,7 +34,7 @@ Fill in `backend.tf` the bucket name created from [00-Setup](../00-Setup/README.
 ### `terraform.tfvars`
 
 Make a copy of the example `.tfvar` file and populate details.
-```
+```bash
 cp terraform.example.tfvars terraform.tfvars
 ```
 
@@ -46,19 +47,20 @@ cp terraform.example.tfvars terraform.tfvars
 ## Task 3. Terraform
 
 ### Terraform Init & Plan
-
-Init and review Terraform execution plan
-
-```
+Initialize Terraform
+```bash
 terraform init
+```
+
+Review Terraform execution plan
+```bash
 terraform plan -out=plan.out
 ```
 
 ### Terraform Apply
 
 Execute previous generated execution plan
-
-```
+```bash
 terraform apply plan.out
 ```
 
@@ -72,6 +74,6 @@ Review the user permissions under **Members** and confirm **Compute Network Admi
 
 Destroy resources created by Terraform
 
-```
+```bash
 terraform destroy
 ```
