@@ -80,3 +80,9 @@ Destroy resources created by Terraform
 ```bash
 terraform destroy
 ```
+
+## Congratulations
+
+<walkthrough-conclusion-trophy></walkthrough-conclusion-trophy>
+
+You’re all set! You can now move on to the next lab.
