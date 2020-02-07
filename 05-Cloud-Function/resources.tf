@@ -19,6 +19,8 @@ resource "google_project_service" "cloudfunctions_api" {
   project            = var.project_id
   service            = "cloudfunctions.googleapis.com"
   disable_on_destroy = false
+
+  depends_on = [module.project_iam_bindings]
 }
 
 // Enable Cloud Storage API: storage-component.googleapis.com
@@ -26,7 +28,9 @@ resource "google_project_service" "storage_component_api" {
   project            = var.project_id
   service            = "storage-component.googleapis.com"
   disable_on_destroy = false
-}
+
+  depends_on = [module.project_iam_bindings]
+  }
 
 // GCS Bucket to upload images
 resource "google_storage_bucket" "image_upload" {
@@ -38,8 +42,8 @@ resource "google_storage_bucket" "image_upload" {
   bucket_policy_only = true
 
   depends_on = [
-    "google_project_service.cloudfunctions_api",
-    "google_project_service.storage_component_api"
+    google_project_service.cloudfunctions_api,
+    google_project_service.storage_component_api
   ]
 }
 
@@ -53,8 +57,9 @@ resource "google_storage_bucket" "image_processed" {
   bucket_policy_only = true
 
   depends_on = [
-    "google_project_service.cloudfunctions_api",
-    "google_project_service.storage_component_api"
+    google_project_service.cloudfunctions_api,
+    google_project_service.storage_component_api,
+    google_service_account_iam_member.service_account_user
   ]
 }
 
@@ -63,6 +68,8 @@ resource "google_service_account" "image_processing_gcf_sa" {
   project      = var.project_id
   account_id   = "image-processing-gcf"
   display_name = "Image Processing Cloud Function Service Account"
+
+  depends_on = [module.project_iam_bindings]
 }
 
 resource "google_service_account_iam_member" "service_account_user" {
