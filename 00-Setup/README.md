@@ -112,13 +112,6 @@ gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="serviceAccount:${
 gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="serviceAccount:${SERVICE_ACCOUNT}" --role="roles/storage.admin"
 ```
 
-### 3.4 GCS bucket
-
-Create a GCS bucket to store Terraform [Remote State](https://www.terraform.io/docs/state/remote.html)
-```
-gsutil mb -p ${PROJECT_ID} gs://${PROJECT_ID}-tfstate
-```
-
 ## 4. Prepare Terraform Credential
 
 Make sure you are in the cloud-foundation-training repository root directory
