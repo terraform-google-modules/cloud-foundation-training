@@ -25,16 +25,16 @@ At the end of the exercise, you will have user(s) in your project that have been
 ## Task 1. Create IAM Role Bindings
 
 Use the Cloud Foundation Toolkit [IAM module](https://github.com/terraform-google-modules/terraform-google-iam) in <walkthrough-editor-open-file filePath="main.tf">
-`main.tf`</walkthrough-editor-open-file> to setup role bindings for a *user* and a *group*.
+main.tf</walkthrough-editor-open-file> to setup role bindings for a *user* and a *group*.
 
 ## Task 2. Configurations
 
-### `backend.tf`
+### backend.tf
 
 Fill in <walkthrough-editor-open-file filePath="backend.tf">
-`backend.tf`</walkthrough-editor-open-file> the bucket name created from [00-Setup](../00-Setup/README.md)
+backend.tf</walkthrough-editor-open-file> the bucket name created from [00-Setup](../00-Setup/README.md)
 
-### `terraform.tfvars`
+### terraform.tfvars
 
 Make a copy of the example `.tfvar` file and populate details.
 ```bash
@@ -43,7 +43,8 @@ cp terraform.example.tfvars terraform.tfvars
 
 **Note**: You can have input variables as
 
-* **default** in `variables.tf`
+* **default** in <walkthrough-editor-open-file filePath="variables.tf">
+variables.tf</walkthrough-editor-open-file>
 * using [terraform.tfvars](https://www.terraform.io/docs/configuration/variables.html#variable-definitions-tfvars-files)
 * command line argument `-var='key=value'`
 
