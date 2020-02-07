@@ -33,3 +33,4 @@ override.tf.json
 # !example_override.tf
 
 *.json
+*.zip
