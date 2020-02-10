@@ -1,14 +1,15 @@
 
-# Cloud Foundation Toolkit Lab - 03-Instance-Group
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_open_in_editor=main.tf&cloudshell_tutorial=README.md&cloudshell_working_dir=03-Instance-Group)
+# Cloud Foundation Toolkit Lab - 04-Instance-Group
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_git_branch=getting-started&cloudshell_open_in_editor=main.tf&cloudshell_tutorial=README.md&cloudshell_working_dir=04-Instance-Group)
 
 ## Prerequisite
 
 Complete previous labs:
 
-* [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
-* [01-IAM](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/01-IAM/README.md)
-* [02-Networking](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/02-Networking/README.md)
+* [00-Setup](../00-Setup/README.md)
+* [01-Getting-Started](../01-Getting-Started/README.md)
+* [02-IAM](../02-IAM/README.md)
+* [03-Networking](../03-Networking/README.md)
 
 You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
@@ -16,7 +17,7 @@ You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-i
 
 This lab helps you create a Google Compute Engine Managed Instance Group using Cloud Foundation Toolkit.
 
-At the end of this exercise, you'll have a set of VM instances provisioned on the networks you've created in the [02-Networking](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/02-Networking/README.md) labs.
+At the end of this exercise, you'll have a set of VM instances provisioned on the networks you've created in the [03-Networking](../03-Networking/README.md) labs.
 
 ### What You'll Learn
 
