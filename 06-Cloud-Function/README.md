@@ -1,15 +1,16 @@
 
 # Cloud Foundation Toolkit Lab - 05-Cloud-Function
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_git_branch=walkthroughs&cloudshell_open_in_editor=main.tf&cloudshell_tutorial=README.md&cloudshell_working_dir=05-Cloud-Function)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_git_branch=getting-started&cloudshell_open_in_editor=main.tf&cloudshell_tutorial=README.md&cloudshell_working_dir=05-Cloud-Function)
 
 ## Prerequisite
 
 Complete previous labs
 * [00-Setup](../00-Setup/README.md)
-* [01-IAM](../01-IAM/README.md)
-* [02-Networking](../02-Networking/README.md)
-* [03-Instance-Group](../03-Instance-Group/README.md)
-* [04-Load-Balancer](../04-Load-Balancer/README.md)
+* [01-Getting-Started](../01-Getting-Started/README.md)
+* [02-IAM](../02-IAM/README.md)
+* [03-Networking](../03-Networking/README.md)
+* [04-Instance-Group](../04-Instance-Group/README.md)
+* [05-Load-Balancer](../05-Load-Balancer/README.md)
 
 You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](../00-Setup/README.md)
 

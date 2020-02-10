@@ -14,5 +14,9 @@
  * limitations under the License.
  */
 
-project_id=""
-region=""
+terraform {
+  backend "gcs" {
+    bucket = "" # GCS bucket for Terraform Remote State
+    prefix = "terraform/state/06/"
+  }
+}

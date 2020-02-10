@@ -21,7 +21,7 @@ resource "random_id" "suffix" {
 /**
  * Task 1: Add Cloud Function ("image_processing_function")
  * - source: "terraform-google-modules/event-function/google"
- * - name: "lab05-cloud-function-${var.project_id}-${random_id.suffix.hex}"
+ * - name: "lab06-cloud-function-${var.project_id}-${random_id.suffix.hex}"
  * - project_id: var.project_id
  * - region: var.region (https://cloud.google.com/functions/docs/locations)
  * - description: "Process image in GCS bucket"

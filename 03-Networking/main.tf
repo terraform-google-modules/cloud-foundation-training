@@ -18,10 +18,10 @@
  * Task 1: Add Network ("network")
  * - source: "terraform-google-modules/network/google"
  * - project_id: var.project_id
- * - network_name: "lab02-vpc"
+ * - network_name: "lab03-vpc"
  * - routing_mode: "GLOBAL"
  * - subnets:
- *   - subnet_name: "lab02-subnet-01"
+ *   - subnet_name: "lab03-subnet-01"
  *   - subnet_ip: "10.0.10.0/24"
  *   - subnet_region: var.region
  *
@@ -38,7 +38,7 @@ module "network" {
  * - project_id: var.project_id
  * - region: var.region
  * - create_router: true
- * - router: "lab02-router"
+ * - router: "lab03-router"
  * - network: refer to network_name created in Task 1 - module.network.network_name
  *
  * Reference - https://github.com/terraform-google-modules/terraform-google-cloud-nat

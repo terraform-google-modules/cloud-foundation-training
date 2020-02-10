@@ -20,7 +20,7 @@ data "local_file" "instance_startup_script" {
 }
 
 resource "google_service_account" "instance_group" {
-  account_id = "lab03-instance-group"
+  account_id = "lab04-instance-group"
   project    = var.project_id
 }
 
@@ -63,7 +63,7 @@ moduel "instance_template" {
  * - project_id: var.project_id
  * - region: var.region
  * - target_size: 2
- * - hostname: "lab03-managed-instance"
+ * - hostname: "lab04-managed-instance"
  * - instance_template: refer to instance template module (module.instance_template.self_link)
  * - named_ports:
  *   - name: "http"
