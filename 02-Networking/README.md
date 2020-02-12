@@ -6,10 +6,10 @@
 
 Complete previous labs:
 
-* [00-Setup](../00-Setup/README.md)
-* [01-IAM](../01-IAM/README.md)
+* [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
+* [01-IAM](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/01-IAM/README.md)
 
-You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](../00-Setup/README.md)
+You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
 ## Networking
 
@@ -40,7 +40,7 @@ main.tf</walkthrough-editor-open-file> to create a Cloud NAT instance and a Clou
 ### backend.tf
 
 Fill in <walkthrough-editor-open-file filePath="backend.tf">
-backend.tf</walkthrough-editor-open-file> the bucket name created from [00-Setup](../00-Setup/README.md)
+backend.tf</walkthrough-editor-open-file> the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
 ### terraform.tfvars
 

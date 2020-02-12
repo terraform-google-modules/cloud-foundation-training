@@ -5,13 +5,13 @@
 ## Prerequisite
 
 Complete previous labs
-* [00-Setup](../00-Setup/README.md)
-* [01-IAM](../01-IAM/README.md)
-* [02-Networking](../02-Networking/README.md)
-* [03-Instance-Group](../03-Instance-Group/README.md)
-* [04-Load-Balancer](../04-Load-Balancer/README.md)
+* [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
+* [01-IAM](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/01-IAM/README.md)
+* [02-Networking](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/02-Networking/README.md)
+* [03-Instance-Group](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/03-Instance-Group/README.md)
+* [04-Load-Balancer](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/04-Load-Balancer/README.md)
 
-You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](../00-Setup/README.md)
+You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
 ## Cloud Function (Event Triggered)
 
@@ -40,7 +40,7 @@ main.tf</walkthrough-editor-open-file> to create a Cloud Function triggered by G
 ### backend.tf
 
 Fill in <walkthrough-editor-open-file filePath="backend.tf">
-backend.tf</walkthrough-editor-open-file> the bucket name created from [00-Setup](../00-Setup/README.md)
+backend.tf</walkthrough-editor-open-file> the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
 ### terraform.tfvars
 

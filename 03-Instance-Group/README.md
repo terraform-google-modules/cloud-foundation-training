@@ -6,17 +6,17 @@
 
 Complete previous labs:
 
-* [00-Setup](../00-Setup/README.md)
-* [01-IAM](../01-IAM/README.md)
-* [02-Networking](../02-Networking/README.md)
+* [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
+* [01-IAM](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/01-IAM/README.md)
+* [02-Networking](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/02-Networking/README.md)
 
-You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](../00-Setup/README.md)
+You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
 ## Managed Instance Group
 
 This lab helps you create a Google Compute Engine Managed Instance Group using Cloud Foundation Toolkit.
 
-At the end of this exercise, you'll have a set of VM instances provisioned on the networks you've created in the [02-Networking](../02-Networking/README.md) labs.
+At the end of this exercise, you'll have a set of VM instances provisioned on the networks you've created in the [02-Networking](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/02-Networking/README.md) labs.
 
 ### What You'll Learn
 
@@ -40,7 +40,7 @@ main.tf</walkthrough-editor-open-file> to create a Managed Instance Group
 ### backend.tf
 
 Fill in <walkthrough-editor-open-file filePath="backend.tf">
-backend.tf</walkthrough-editor-open-file> the bucket name created from [00-Setup](../00-Setup/README.md)
+backend.tf</walkthrough-editor-open-file> the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
 ### terraform.tfvars
 
