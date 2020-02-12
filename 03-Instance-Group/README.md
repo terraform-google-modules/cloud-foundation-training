@@ -27,20 +27,17 @@ At the end of this exercise, you'll have a set of VM instances provisioned on th
 
 ## Task 1. Create Instance Template
 
-Use the Cloud Foundation Toolkit [Instance Template](https://github.com/terraform-google-modules/terraform-google-vm/modules/instance_template) module in <walkthrough-editor-open-file filePath="main.tf">
-main.tf</walkthrough-editor-open-file> to create an Instance Template
+Use the Cloud Foundation Toolkit [Instance Template](https://github.com/terraform-google-modules/terraform-google-vm/modules/instance_template) module in main.tf to create an Instance Template
 
 ## Task 2. Create Managed Instance Group
 
-Use the Cloud Foundation Toolkit [Managed Instance Group](https://github.com/terraform-google-modules/terraform-google-vm/modules/mig) module in <walkthrough-editor-open-file filePath="main.tf">
-main.tf</walkthrough-editor-open-file> to create a Managed Instance Group
+Use the Cloud Foundation Toolkit [Managed Instance Group](https://github.com/terraform-google-modules/terraform-google-vm/modules/mig) module in main.tf to create a Managed Instance Group
 
 ## Task 3. Configurations
 
 ### backend.tf
 
-Fill in <walkthrough-editor-open-file filePath="backend.tf">
-backend.tf</walkthrough-editor-open-file> the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
+Fill in backend.tf the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
 ### terraform.tfvars
 
@@ -51,8 +48,7 @@ cp terraform.example.tfvars terraform.tfvars
 
 **Note**: You can have input variables as
 
-* **default** in <walkthrough-editor-open-file filePath="variables.tf">
-variables.tf</walkthrough-editor-open-file>
+* **default** in variables.tf
 * using [terraform.tfvars](https://www.terraform.io/docs/configuration/variables.html#variable-definitions-tfvars-files)
 * command line argument `-var='key=value'`
 

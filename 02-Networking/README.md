@@ -27,20 +27,17 @@ At the end of the exercise, you will have a VPC network with 1 subnet and 1 Clou
 
 ## Task 1. Create Networking
 
-Use the Cloud Foundation Toolkit [Network module](https://github.com/terraform-google-modules/terraform-google-network) in <walkthrough-editor-open-file filePath="main.tf">
-main.tf</walkthrough-editor-open-file> to setup VPC network.
+Use the Cloud Foundation Toolkit [Network module](https://github.com/terraform-google-modules/terraform-google-network) in main.tf to setup VPC network.
 
 ## Task 2. Create Cloud NAT instance
 
-Use the Cloud Foundation Toolkit [Cloud NAT module](https://github.com/terraform-google-modules/terraform-google-cloud-nat) in <walkthrough-editor-open-file filePath="main.tf">
-main.tf</walkthrough-editor-open-file> to create a Cloud NAT instance and a Cloud Router.
+Use the Cloud Foundation Toolkit [Cloud NAT module](https://github.com/terraform-google-modules/terraform-google-cloud-nat) in main.tf to create a Cloud NAT instance and a Cloud Router.
 
 ## Task 3. Configurations
 
 ### backend.tf
 
-Fill in <walkthrough-editor-open-file filePath="backend.tf">
-backend.tf</walkthrough-editor-open-file> the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
+Fill in backend.tf the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
 ### terraform.tfvars
 
@@ -51,8 +48,7 @@ cp terraform.example.tfvars terraform.tfvars
 
 **Note**: You can have input variables as
 
-* **default** in <walkthrough-editor-open-file filePath="variables.tf">
-variables.tf</walkthrough-editor-open-file>
+* **default** in variables.tf
 * using [terraform.tfvars](https://www.terraform.io/docs/configuration/variables.html#variable-definitions-tfvars-files)
 * command line argument `-var='key=value'`
 

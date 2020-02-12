@@ -27,19 +27,15 @@ At the end of this exercise, you'll have a global HTTP(S) Load Balancer with a s
 
 ## Task 1. Create HTTP Load Balancer
 
-Use the Cloud Foundation Toolkit [Global HTTP(S) Load Balancer](https://github.com/terraform-google-modules/terraform-google-lb-http) module in <walkthrough-editor-open-file filePath="main.tf">
-main.tf</walkthrough-editor-open-file> to create a Global HTTP Load Balancer with Managed Instance Group from [03-Instance-Group](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/03-Instance-Group/README.md) as the backend
+Use the Cloud Foundation Toolkit [Global HTTP(S) Load Balancer](https://github.com/terraform-google-modules/terraform-google-lb-http) module in main.tf to create a Global HTTP Load Balancer with Managed Instance Group from [03-Instance-Group](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/03-Instance-Group/README.md) as the backend
 
-**VPC Network**, **Cloud NAT**, **Instance Template** and **Managed Instance Group** provided in <walkthrough-editor-open-file filePath="network.tf">
-network.tf</walkthrough-editor-open-file> and <walkthrough-editor-open-file filePath="mig.tf">
-mig.tf</walkthrough-editor-open-file>
+**VPC Network**, **Cloud NAT**, **Instance Template** and **Managed Instance Group** provided in network.tf and mig.tf
 
 ## Task 2. Configurations
 
 ### backend.tf
 
-Fill in <walkthrough-editor-open-file filePath="backend.tf">
-backend.tf</walkthrough-editor-open-file> the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
+Fill in backend.tf the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
 ### terraform.tfvars
 
@@ -50,8 +46,7 @@ cp terraform.example.tfvars terraform.tfvars
 
 **Note**: You can have input variables as
 
-* **default** in <walkthrough-editor-open-file filePath="variables.tf">
-variables.tf</walkthrough-editor-open-file>
+* **default** in variables.tf
 * using [terraform.tfvars](https://www.terraform.io/docs/configuration/variables.html#variable-definitions-tfvars-files)
 * command line argument `-var='key=value'`
 

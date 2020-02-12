@@ -8,7 +8,7 @@ Complete previous labs:
 
 * [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
-You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master//00-Setup/README.md)
+You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
 ## Identity and Access Management
 
@@ -24,15 +24,13 @@ At the end of the exercise, you will have user(s) in your project that have been
 
 ## Task 1. Create IAM Role Bindings
 
-Use the Cloud Foundation Toolkit [IAM module](https://github.com/terraform-google-modules/terraform-google-iam) in <walkthrough-editor-open-file filePath="main.tf">
-main.tf</walkthrough-editor-open-file> to setup role bindings for a *user* and a *group*.
+Use the Cloud Foundation Toolkit [IAM module](https://github.com/terraform-google-modules/terraform-google-iam) in main.tf to setup role bindings for a *user* and a *group*.
 
 ## Task 2. Configurations
 
 ### backend.tf
 
-Fill in <walkthrough-editor-open-file filePath="backend.tf">
-backend.tf</walkthrough-editor-open-file> the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master//00-Setup/README.md)
+Fill in backend.tf the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
 ### terraform.tfvars
 
@@ -43,8 +41,7 @@ cp terraform.example.tfvars terraform.tfvars
 
 **Note**: You can have input variables as
 
-* **default** in <walkthrough-editor-open-file filePath="variables.tf">
-variables.tf</walkthrough-editor-open-file>
+* **default** in variables.tf
 * using [terraform.tfvars](https://www.terraform.io/docs/configuration/variables.html#variable-definitions-tfvars-files)
 * command line argument `-var='key=value'`
 
