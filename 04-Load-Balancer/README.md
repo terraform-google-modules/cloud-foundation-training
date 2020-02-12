@@ -1,61 +1,65 @@
 
 # Cloud Foundation Toolkit Lab - 04-Load-Balancer
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_open_in_editor=main.tf&cloudshell_tutorial=README.md&cloudshell_working_dir=04-Load-Balancer)
 
 ## Prerequisite
 
 Complete previous labs
-* **[00-Setup](../00-Setup/README.md)**
-* **[01-IAM](../01-IAM/README.md)**
-* **[02-Networking](../02-Networking/README.md)**
-* **[03-Instance-Group](../03-Instance-Group/README.md)**
+* [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
+* [01-IAM](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/01-IAM/README.md)
+* [02-Networking](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/02-Networking/README.md)
+* [03-Instance-Group](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/03-Instance-Group/README.md)
 
-You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](../00-Setup/README.md)
-
-## What You'll Learn
-
-* [Cloud Foundation Toolkit](https://cloud.google.com/foundation-toolkit/)
-* [terraform-google-lb-http](https://github.com/terraform-google-modules/terraform-google-lb-http)
-* [Global HTTP(S) Load Balancer](https://cloud.google.com/load-balancing/docs/https)
+You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
 ## Global HTTP(S) Load Balancer
 
 This lab helps you create a Global HTTP(S) Load Balancer using Cloud Foundation Toolkit.
 
-At the end of this exercise, you'll have a global HTTP(S) Load Balancer with a single external IP backed by the Managed Instance Group VM instances you've created in the [03-Instance-Group](../03-Instance-Group/README.md) labs.
+At the end of this exercise, you'll have a global HTTP(S) Load Balancer with a single external IP backed by the Managed Instance Group VM instances you've created in the [03-Instance-Group](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/03-Instance-Group/README.md) labs.
+
+### What You'll Learn
+
+* [Cloud Foundation Toolkit](https://cloud.google.com/foundation-toolkit/)
+* [terraform-google-lb-http](https://github.com/terraform-google-modules/terraform-google-lb-http)
+* [Global HTTP(S) Load Balancer](https://cloud.google.com/load-balancing/docs/https)
+
 
 ## Task 1. Create HTTP Load Balancer
 
-Use the Cloud Foundation Toolkit [Global HTTP(S) Load Balancer](https://github.com/terraform-google-modules/terraform-google-lb-http) module in `main.tf` to create a Global HTTP Load Balancer with Managed Instance Group from [03-Instance-Group](../03-Instance-Group/README.md) as the backend
+Use the Cloud Foundation Toolkit [Global HTTP(S) Load Balancer](https://github.com/terraform-google-modules/terraform-google-lb-http) module in main.tf to create a Global HTTP Load Balancer with Managed Instance Group from [03-Instance-Group](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/03-Instance-Group/README.md) as the backend
 
-**VPC Network**, **Cloud NAT**, **Instance Template** and **Managed Instance Group** provided in `network.tf` and `mig.tf`
+**VPC Network**, **Cloud NAT**, **Instance Template** and **Managed Instance Group** provided in network.tf and mig.tf
 
 ## Task 2. Configurations
 
-### `backend.tf`
+### backend.tf
 
-Fill in `backend.tf` the bucket name created from [00-Setup](../00-Setup/README.md)
+Fill in backend.tf the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
-### `terraform.tfvars`
+### terraform.tfvars
 
 Make a copy of the example `.tfvar` file and populate details.
-```
+```bash
 cp terraform.example.tfvars terraform.tfvars
 ```
 
 **Note**: You can have input variables as
 
-* **default** in `variables.tf`
+* **default** in variables.tf
 * using [terraform.tfvars](https://www.terraform.io/docs/configuration/variables.html#variable-definitions-tfvars-files)
 * command line argument `-var='key=value'`
 
 ## Task 3. Terraform
 
 ### Terraform Init & Plan
-
-Init and review Terraform execution plan
-
-```
+Initialize Terraform
+```bash
 terraform init
+```
+
+Review Terraform execution plan
+```bash
 terraform plan -out=plan.out
 ```
 
@@ -63,7 +67,7 @@ terraform plan -out=plan.out
 
 Execute previous generated execution plan
 
-```
+```bash
 terraform apply plan.out
 ```
 
@@ -83,6 +87,12 @@ Open a browser and enter the IP address, you should see a response similar to th
 
 Destroy resources created by Terraform
 
-```
+```bash
 terraform destroy
 ```
+
+## Congratulations
+
+<walkthrough-conclusion-trophy></walkthrough-conclusion-trophy>
+
+You’re all set! You can now move on to the next lab.
