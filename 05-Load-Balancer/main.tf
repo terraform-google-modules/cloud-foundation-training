@@ -26,7 +26,6 @@
  *     - port_name: "http"
  *     - protcol: "HTTP"
  *     - port: 80
- *     - port_name: "httpport"
  *     - description: null
  *     - timeout_sec: null
  *     - connection_draining_timeout_sec: null
