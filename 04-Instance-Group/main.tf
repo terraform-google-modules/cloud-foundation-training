@@ -53,7 +53,7 @@ resource "" "service_account_user" {
  * Reference - https://github.com/terraform-google-modules/terraform-google-vm/tree/master/modules/instance_template
  *
  */
-moduel "instance_template" {
+module "instance_template" {
 
 }
 
