@@ -27,11 +27,11 @@ At the end of this exercise, you'll have a set of VM instances provisioned on th
 
 ## Task 1. Create Instance Template
 
-Use the Cloud Foundation Toolkit [Instance Template](https://github.com/terraform-google-modules/terraform-google-vm/modules/instance_template) module in main.tf to create an Instance Template
+Use the Cloud Foundation Toolkit [Instance Template](https://github.com/terraform-google-modules/terraform-google-vm/tree/master/modules/instance_template) module in main.tf to create an Instance Template
 
 ## Task 2. Create Managed Instance Group
 
-Use the Cloud Foundation Toolkit [Managed Instance Group](https://github.com/terraform-google-modules/terraform-google-vm/modules/mig) module in main.tf to create a Managed Instance Group
+Use the Cloud Foundation Toolkit [Managed Instance Group](https://github.com/terraform-google-modules/terraform-google-vm/tree/master/modules/mig) module in main.tf to create a Managed Instance Group
 
 ## Task 3. Configurations
 
