@@ -24,7 +24,7 @@
  * - backends: (Set rest of inputs to null)
  *   - default
  *     - port_name: "http"
- *     - protcol: "HTTP"
+ *     - protocol: "HTTP"
  *     - port: 80
  *     - description: null
  *     - timeout_sec: null
