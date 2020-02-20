@@ -21,6 +21,7 @@
 provider "google" {
   project     = "" # Replace with Project ID
   region      = "" # Replace with selected Region
+  version     = "~>3.9.0"
 }
 */
 

@@ -13,7 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+provider "google" {
+  project     = var.project_id
+  region      = var.region
+}
 /**
  * Task 1: Add IAM Role Bindings (project_iam_bindings)
 * - source: "terraform-google-modules/iam/google//modules/projects_iam"

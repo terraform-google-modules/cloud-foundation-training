@@ -13,7 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+provider "google" {
+  project     = var.project_id
+  region      = var.region
+}
 # This startup script creates a web server application used for testing
 data "local_file" "instance_startup_script" {
   filename = "${path.module}/templates/startup.sh"

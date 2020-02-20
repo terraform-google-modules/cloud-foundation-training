@@ -13,7 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+provider "google" {
+  project     = var.project_id
+  region      = var.region
+}
 /**
  * Task 1: Add a Global HTTP Load Balancer ("load_balancer")
  * - source: "GoogleCloudPlatform/lb-http/google"
