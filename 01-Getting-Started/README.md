@@ -12,7 +12,7 @@ Clone this repository and run locally, or use Cloud Shell to walk through the st
 ## Setup
 This lab helps you initiate Terraform to work with Google Cloud Platform.
 
-At the end of the exercise, you will have 2 GCS buckets (**Logs** and **Remote State**) with 4 lines of output value.
+At the end of the exercise, you will have a GCS bucket for Remote State.
 
 ### What You'll Learn
 * Using Terraform
@@ -88,12 +88,14 @@ Run `terraform plan` to make sure your variables were created and assigned corre
 terraform plan
 ```
 
-## Task 4. Create GCS Buckets
+## Task 4. Create GCS Bucket
 
 ### Terraform Configuration
 1. In `main.tf`, uncomment the [random_id](https://www.terraform.io/docs/providers/random/r/id.html) resource block, which will generate a random character string that you can append to our bucket to help ensure uniqueness.
 
 2. In `main.tf`, uncomment and fill in the [google_storage_bucket](https://www.terraform.io/docs/providers/google/r/storage_bucket.html) that you'll create to store Terraform state.
+
+3. In `output.tf` uncomment the [output block](https://www.terraform.io/docs/configuration/outputs.html) that produces the storage bucket information after it's applied.
 
 *Note the use of the random_id output in our bucket name. We can re-use this string in other Terraform resources*.
 
@@ -122,13 +124,11 @@ terraform apply plan.out
 
 If your resources were created successfully, you should see the following message:
 ```
-Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 
-The state of your infrastructure has been saved to the path
-below. This state is required to modify and destroy your
-infrastructure, so keep it safe. To inspect the complete state
-use the `terraform show` command.
-State path: terraform.tfstate
+Outputs:
+
+remote_state_bucket = gs://cft-lab-state-bucket-ccc4ec72
 ```
 
 ### Verify
