@@ -34,7 +34,7 @@ resource "google_project_service" "storage_component_api" {
 
 // GCS Bucket to upload images
 resource "google_storage_bucket" "image_upload" {
-  name               = "lab05-image-upload-${var.project_id}-${random_id.suffix.hex}"
+  name               = "lab06-image-upload-${var.project_id}-${random_id.suffix.hex}"
   project            = var.project_id
   location           = var.region
   storage_class      = "REGIONAL"
@@ -49,7 +49,7 @@ resource "google_storage_bucket" "image_upload" {
 
 // GCS Bucket to output processed images
 resource "google_storage_bucket" "image_processed" {
-  name               = "lab05-image-processed-${var.project_id}-${random_id.suffix.hex}"
+  name               = "lab06-image-processed-${var.project_id}-${random_id.suffix.hex}"
   project            = var.project_id
   location           = var.region
   storage_class      = "REGIONAL"

@@ -81,7 +81,7 @@ On [Google Cloud Console](https://console.cloud.google.com/), navigate to **Clou
 
 Verify the **Cloud Function** is deployed successfully
 
-Under **05-Cloud-Function** folder, upload a sampe image to the upload bucket
+Under **06-Cloud-Function** folder, upload a sampe image to the upload bucket
 ```
 gsutil cp images/zombie.jpg gs://`terraform output storage_bucket_image_upload`
 ```
