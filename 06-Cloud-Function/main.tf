@@ -13,10 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 provider "google" {
-  project     = var.project_id
-  region      = var.region
+  project = var.project_id
+  region  = var.region
+  version = "~> 3.9.0"
 }
+
 resource "random_id" "suffix" {
   byte_length = 4
 }
@@ -49,4 +52,3 @@ resource "random_id" "suffix" {
 module "image_processing_function" {
 
 }
-

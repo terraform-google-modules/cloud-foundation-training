@@ -14,36 +14,54 @@
  * limitations under the License.
  */
 
-# Task 2: Initialize Terraform
-# https://www.terraform.io/docs/providers/google/index.html
-
+/**
+ * Task 2: Initialize Terraform with google provider
+ * - project: var.project_id
+ * - region: var.region
+ * - version: "~> 3.9.0"
+ *
+ * Reference - https://www.terraform.io/docs/providers/google/index.html
+ *
+ */
 /**
 provider "google" {
-  project     = "" # Replace with Project ID
-  region      = "" # Replace with selected Region
-  version     = "~>3.9.0"
+  project = var.project_id
+  region  = var.region
+  version = "~> 3.9.0"
 }
 */
 
-# Task 4.1: Add random_id resource named suffix
-# https://www.terraform.io/docs/providers/random/r/id.html
-
+/**
+ * Task 4.1: Add random_id resource ("suffix")
+ * - byte_length: 4
+ *
+ * Reference - https://www.terraform.io/docs/providers/random/r/id.html
+ *
+ */
 /**
 resource "random_id" "suffix" {
   byte_length = 4
 }
 */
 
-# Task 4.2: Add GCS bucket for remote state
-# https://www.terraform.io/docs/providers/google/r/storage_bucket.html
-
 /**
-resource "google_storage_bucket" "remote-state" {
+ * Task 4.2: Add GCS bucket resource for remote state ("remote_state")
+ * - name: "cft-lab-state-<YOUR_NAME>-${random_id.suffix.hex}"
+ * - location: "US"
+ * - force_destroy: true
+ * - versioning:
+ *   - enabled: true
+ *
+ * Reference - https://www.terraform.io/docs/providers/google/r/storage_bucket.html
+ *
+ */
+/**
+resource "google_storage_bucket" "remote_state" {
   name          = "cft-lab-state-<YOUR_NAME>-${random_id.suffix.hex}" # Note the reference to the random_id block
   location      = "US"
   force_destroy = true
   versioning {
-    enabled = "true"
+    enabled = true
   }
 }
 */

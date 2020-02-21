@@ -30,7 +30,7 @@ resource "google_project_service" "storage_component_api" {
   disable_on_destroy = false
 
   depends_on = [module.project_iam_bindings]
-  }
+}
 
 // GCS Bucket to upload images
 resource "google_storage_bucket" "image_upload" {

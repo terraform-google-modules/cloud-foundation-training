@@ -14,5 +14,5 @@
  * limitations under the License.
  */
 
-project_id=""
-region=""
+project_id = "" # Insert Project ID here
+region     = ""
