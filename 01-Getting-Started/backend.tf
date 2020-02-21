@@ -20,8 +20,8 @@
 /**
 terraform {
   backend "gcs" {
-    bucket  = ""
-    prefix  = "terraform/state"
+    bucket  = "" # GCS bucket for Terraform Remote State
+    prefix  = "terraform/state/01/"
   }
 }
 */

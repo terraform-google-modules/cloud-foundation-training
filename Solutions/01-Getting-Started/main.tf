@@ -15,7 +15,7 @@
  */
 
 /**
- * Task 2: Initialize Terraform
+ * Task 2: Initialize Terraform with google provider
  * - project: var.project_id
  * - region: var.region
  * - version: "~> 3.9.0"

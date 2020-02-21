@@ -1,13 +1,13 @@
 
 # Cloud Foundation Toolkit Lab - 02-IAM
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_git_branch=getting-started&cloudshell_open_in_editor=main.tf&cloudshell_tutorial=README.md&cloudshell_working_dir=02-IAM)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_git_branch=master&cloudshell_open_in_editor=main.tf&cloudshell_tutorial=README.md&cloudshell_working_dir=02-IAM)
 
 ## Prerequisite
 
 Complete previous labs:
 
-* [00-Setup](../00-Setup/README.md)
-* [01-Getting-Started](../01-Getting-Started/README.md)
+* [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
+* [01-Getting-Started](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/01-Getting-Started/README.md)
 
 You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
@@ -25,13 +25,13 @@ At the end of the exercise, you will have user(s) in your project that have been
 
 ## Task 1. Create IAM Role Bindings
 
-Use the Cloud Foundation Toolkit [IAM module](https://github.com/terraform-google-modules/terraform-google-iam) in main.tf to setup role bindings for a *user* and a *group*.
+Use the Cloud Foundation Toolkit [IAM module](https://github.com/terraform-google-modules/terraform-google-iam) in `main.tf` to setup role bindings for a *user* and a *group*.
 
 ## Task 2. Configurations
 
 ### backend.tf
 
-Fill in backend.tf the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
+Fill in `backend.tf` the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
 ### terraform.tfvars
 

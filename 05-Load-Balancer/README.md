@@ -1,14 +1,15 @@
 
 # Cloud Foundation Toolkit Lab - 05-Load-Balancer
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_git_branch=getting-started&cloudshell_open_in_editor=main.tf&cloudshell_tutorial=README.md&cloudshell_working_dir=05-Load-Balancer)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_git_branch=master&cloudshell_open_in_editor=main.tf&cloudshell_tutorial=README.md&cloudshell_working_dir=05-Load-Balancer)
 
 ## Prerequisite
 
 Complete previous labs
-* [00-Setup](../00-Setup/README.md)
-* [02-IAM](../01-IAM/README.md)
-* [03-Networking](../03-Networking/README.md)
-* [04-Instance-Group](../04-Instance-Group/README.md)
+* [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
+* [01-Getting-Started](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/01-Getting-Started/README.md)
+* [02-IAM](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/02-IAM/README.md)
+* [03-Networking](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/03-Networking/README.md)
+* [04-Instance-Group](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/04-Instance-Group/README.md)
 
 You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
@@ -16,7 +17,7 @@ You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-i
 
 This lab helps you create a Global HTTP(S) Load Balancer using Cloud Foundation Toolkit.
 
-At the end of this exercise, you'll have a global HTTP(S) Load Balancer with a single external IP backed by the Managed Instance Group VM instances you've created in the [04-Instance-Group](../04-Instance-Group/README.md) labs.
+At the end of this exercise, you'll have a global HTTP(S) Load Balancer with a single external IP backed by the Managed Instance Group VM instances you've created in the [04-Instance-Group](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/04-Instance-Group/README.md) labs.
 
 ### What You'll Learn
 
@@ -27,10 +28,9 @@ At the end of this exercise, you'll have a global HTTP(S) Load Balancer with a s
 
 ## Task 1. Create HTTP Load Balancer
 
-Use the Cloud Foundation Toolkit [Global HTTP(S) Load Balancer](https://github.com/terraform-google-modules/terraform-google-lb-http) module in <walkthrough-editor-open-file filePath="main.tf">
-main.tf</walkthrough-editor-open-file> to create a Global HTTP Load Balancer with Managed Instance Group from [04-Instance-Group](../04-Instance-Group/README.md) as the backend
+Use the Cloud Foundation Toolkit [Global HTTP(S) Load Balancer](https://github.com/terraform-google-modules/terraform-google-lb-http) module in main.tf to create a Global HTTP Load Balancer with Managed Instance Group from [04-Instance-Group](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/04-Instance-Group/README.md) as the backend
 
-**VPC Network**, **Cloud NAT**, **Instance Template** and **Managed Instance Group** provided in network.tf and mig.tf
+**VPC Network**, **Cloud NAT**, **Instance Template** and **Managed Instance Group** provided in `network.tf` and `mig.tf`
 
 ## Task 2. Configurations
 

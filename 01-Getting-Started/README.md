@@ -1,7 +1,8 @@
-# Cloud Foundation Toolkit Lab - Getting Started
+
+# Cloud Foundation Toolkit Lab - 01-Getting-Started
 Clone this repository and run locally, or use Cloud Shell to walk through the steps:
 
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_git_branch=new-templates&cloudshell_open_in_editor=setup.tf&cloudshell_working_dir=terraform&cloudshell_tutorial=..%2Ftutorials%2F01-setup-backend.md)
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_git_branch=master&cloudshell_open_in_editor=main.tf&cloudshell_working_dir=terraform&cloudshell_tutorial=..%2Ftutorials%2F01-setup-backend.md)
 
 ## Prerequisites
 * Google Cloud Platform project with valid billing account
@@ -11,7 +12,7 @@ Clone this repository and run locally, or use Cloud Shell to walk through the st
 ## Setup
 This lab helps you initiate Terraform to work with Google Cloud Platform.
 
-At the end of the exercise, you will have 2 GCS buckets, (**Logs** and **Remote State**) with 4 lines of output value.
+At the end of the exercise, you will have 2 GCS buckets (**Logs** and **Remote State**) with 4 lines of output value.
 
 ### What You'll Learn
 * Using Terraform
@@ -41,7 +42,7 @@ gcloud config set project $PROJECT_ID
 ### Google Cloud Provider
 Determine your Google Cloud [Project ID](https://cloud.google.com/sdk/gcloud/reference/projects/list), and select a [Region](https://cloud.google.com/compute/docs/regions-zones/#available) to provision resources.
 
-Uncomment the `provider` block in <walkthrough-editor-open-file filePath="setup.tf">setup.tf</walkthrough-editor-open-file>, and fill it in to include your Project ID and a Region. Save file.
+Uncomment the `provider` block in `main.tf`, and fill it in to include your Project ID and a Region. Save file.
 
 ### Initialize Terraform
 [terraform init](https://www.terraform.io/docs/commands/init.html) command is used to initialize a working directory containing Terraform configuration files.
@@ -67,7 +68,7 @@ Run the following to see what Terraform attempts to create.
 terraform plan
 ```
 
-Because no resources have been created in your `setup.tf` file (all resources are commented out), your successful `terraform plan` output will look like the following:
+Because no resources have been created in your `main.tf` file (all resources are commented out), your successful `terraform plan` output will look like the following:
 ```
 
 No changes. Infrastructure is up-to-date.
@@ -77,8 +78,8 @@ actions need to be performed.
 ```
 
 ## Task 3. Create and assign variables
-1. In <walkthrough-editor-open-file filePath="variables.tf">variables.tf</walkthrough-editor-open-file>, create input variables for `project_id` and `region` that you selected in the previous task. This doesn't mean your variables are set yet, this just declares them.
-2. In <walkthrough-editor-open-file filePath="terraform.tfvars">terraform.tfvars</walkthrough-editor-open-file>, set your variables by assigning the values you used in Task 1.
+1. In `variables.tf`, create input variables for `project_id` and `region` that you selected in the previous task. This doesn't mean your variables are set yet, this just declares them.
+2. In `terraform.tfvars`, set your variables by assigning the values you used in Task 1.
 
 We can now use these variables in our file and avoid repeating the Project ID every time.
 
@@ -90,11 +91,9 @@ terraform plan
 ## Task 4. Create GCS Buckets
 
 ### Terraform Configuration
-1. In <walkthrough-editor-open-file filePath="main
-.tf">main.tf</walkthrough-editor-open-file>, uncomment the [random_id](https://www.terraform.io/docs/providers/random/r/id.html) resource block, which will generate a random character string that you can append to our bucket to help ensure uniqueness.
+1. In `main.tf`, uncomment the [random_id](https://www.terraform.io/docs/providers/random/r/id.html) resource block, which will generate a random character string that you can append to our bucket to help ensure uniqueness.
 
-2. In <walkthrough-editor-open-file filePath="main
-.tf">main.tf</walkthrough-editor-open-file>, uncomment and fill in the [google_storage_bucket](https://www.terraform.io/docs/providers/google/r/storage_bucket.html) that you'll create to store Terraform state.
+2. In `main.tf`, uncomment and fill in the [google_storage_bucket](https://www.terraform.io/docs/providers/google/r/storage_bucket.html) that you'll create to store Terraform state.
 
 *Note the use of the random_id output in our bucket name. We can re-use this string in other Terraform resources*.
 
@@ -150,8 +149,7 @@ Inspect `terraform.tfstate` to see resources managed the local Terraform state f
 ## Task 5. Setup Remote Backend
 In the future, you'll want to store state in a GCS bucket instead of the local repository directory, so in this task you'll point Terraform state to the GCS bucket you've created.
 
-In <walkthrough-editor-open-file filePath="backend
-.tf">backend.tf</walkthrough-editor-open-file>, uncomment and fill in the [terraform backend](https://www.terraform.io/docs/backends/types/gcs.html) block so that state is stored in the GCS bucket instead of the local directory.
+In `backend.tf`, uncomment and fill in the [terraform backend](https://www.terraform.io/docs/backends/types/gcs.html) block so that state is stored in the GCS bucket instead of the local directory.
 
 You'll repeat this step through a number of the labs.
 

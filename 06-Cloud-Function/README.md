@@ -1,16 +1,16 @@
 
-# Cloud Foundation Toolkit Lab - 05-Cloud-Function
-[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_git_branch=getting-started&cloudshell_open_in_editor=main.tf&cloudshell_tutorial=README.md&cloudshell_working_dir=06-Cloud-Function)
+# Cloud Foundation Toolkit Lab - 06-Cloud-Function
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_git_branch=master&cloudshell_open_in_editor=main.tf&cloudshell_tutorial=README.md&cloudshell_working_dir=06-Cloud-Function)
 
 ## Prerequisite
 
 Complete previous labs
-* [00-Setup](../00-Setup/README.md)
-* [01-Getting-Started](../01-Getting-Started/README.md)
-* [02-IAM](../02-IAM/README.md)
-* [03-Networking](../03-Networking/README.md)
-* [04-Instance-Group](../04-Instance-Group/README.md)
-* [05-Load-Balancer](../05-Load-Balancer/README.md)
+* [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
+* [01-Getting-Started](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/01-Getting-Started/README.md)
+* [02-IAM](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/02-IAM/README.md)
+* [03-Networking](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/03-Networking/README.md)
+* [04-Instance-Group](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/04-Instance-Group/README.md)
+* [05-Load-Balancer](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/05-Load-Balancer/README.md)
 
 You should have [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive) installed and configured before continuing, otherwise refer to [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
@@ -39,7 +39,7 @@ Use the Cloud Foundation Toolkit [Event Function](https://github.com/terraform-g
 
 ### backend.tf
 
-Fill in backend.tf the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
+Fill in `backend.tf` the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
 
 ### terraform.tfvars
 
