@@ -20,6 +20,7 @@ crash.log
 #
 *.tfvars
 !terraform.example.tfvars
+!01-Getting-Started/terraform.tfvars
 
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in

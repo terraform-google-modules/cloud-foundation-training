@@ -128,7 +128,7 @@ Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 
 Outputs:
 
-remote_state_bucket = gs://cft-lab-state-bucket-ccc4ec72
+remote_state_bucket = gs://cft-lab-state-<YOUR_NAME>-${random_id.suffix.hex}
 ```
 
 ### Verify
