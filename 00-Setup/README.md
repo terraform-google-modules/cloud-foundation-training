@@ -50,8 +50,9 @@ gcloud config list
 ```
 
 **04 - Login and authorize gcloud to access GCP with your training user credential**
+Use the following command to authorize gcloud to run commands on your behalf. Logging in with application-default mode stores temporary credentials in a well-known location locally for applications like Terraform to use.
 ```
-gcloud auth login
+gcloud auth application-default login
 ```
 
 ## 3. Prepare you training GCP Project
@@ -130,4 +131,5 @@ gcloud iam service-accounts keys create cft-training.json --iam-account=${SERVIC
 Supply the key to Terraform using the environment variable GOOGLE_CLOUD_KEYFILE_JSON, setting the value to the location of the file.
 ```
 export GOOGLE_CLOUD_KEYFILE_JSON="$(pwd)/cft-training.json"
+export GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_CLOUD_KEYFILE_JSON
 ```
