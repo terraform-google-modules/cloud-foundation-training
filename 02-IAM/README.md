@@ -25,7 +25,7 @@ At the end of the exercise, you will have user(s) in your project that have been
 
 ## Task 1. Create IAM Role Bindings
 
-Use the Cloud Foundation Toolkit [IAM module](https://github.com/terraform-google-modules/terraform-google-iam) in `main.tf` to setup role bindings for a *user* and a *group*.
+Use the Cloud Foundation Toolkit [IAM module](https://github.com/terraform-google-modules/terraform-google-iam) in `main.tf` to setup role bindings for a *user* or *group*. You can pick any user here for the demonstration: another account that belongs to you or someone you know. These permissions will be removed at the end of the lab.
 
 ## Task 2. Configurations
 

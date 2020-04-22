@@ -72,10 +72,7 @@ gcloud services enable iam.googleapis.com
 ```
 
 ### 3.2 IAM roles
-
-**Note**: **Skip** this section if you are attending an organized training session.
-
-You will need add the following IAM policy binding to your training project
+You will need add the following IAM policy binding to the account you'll be using in your training project
 * **Service Usage Admin** roles/serviceusage.serviceUsageAdmin
 * **Service Account Admin** roles/iam.serviceAccountAdmin
 * **Service Account Key Admin** roles/iam.serviceAccountKeyAdmin
