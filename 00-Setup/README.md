@@ -62,9 +62,11 @@ gcloud auth application-default login
 **Note**: **Skip** this section if you are attending an organized training session.
 
 You will need to enable the following Google Cloud APIs on the training project
+* [Service Usage API](https://cloud.google.com/serviceusage/docs/reference/rest)
 * [Cloud Resource Manager API](https://cloud.google.com/resource-manager/reference/rest/)
 * [Identity and Access Management (IAM) API](https://cloud.google.com/iam/docs/reference/rest)
 ```
+gcloud services enable serviceusage.googleapis.com
 gcloud services enable cloudresourcemanager.googleapis.com
 gcloud services enable iam.googleapis.com
 ```
