@@ -29,6 +29,14 @@ At the end of this exercise, you'll have a Google Cloud Function and 2 Google Cl
 
 **Note**: This lab is based on the [Cloud Function ImageMagick Tutorial](https://cloud.google.com/functions/docs/tutorials/imagemagick#functions-prepare-environment-python)
 
+## Preparation: Enable APIs
+When using any new service for the first time in a GCP project, you'll need to enable the APIs that you'll be using.
+
+Enable the [Cloud Functions API](https://cloud.google.com/functions/docs/reference/rest) using:
+```
+gcloud services enable cloudfunctions.googleapis.com
+```
+
 ## Task 1. Create Cloud Function
 
 Use the Cloud Foundation Toolkit [Event Function](https://github.com/terraform-google-modules/terraform-google-event-function)) module in main.tf to create a Cloud Function triggered by GCS file upload event

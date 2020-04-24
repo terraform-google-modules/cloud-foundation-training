@@ -26,6 +26,14 @@ At the end of the exercise, you will have a VPC network with 1 subnet and 1 Clou
 * [terraform-google-cloud-nat](https://github.com/terraform-google-modules/terraform-google-vpc)
 * [Cloud NAT](https://cloud.google.com/nat/docs/overview)
 
+## Preparation: Enable APIs
+When using any new service for the first time in a GCP project, you'll need to enable the APIs that you'll be using.
+
+Enable the [Compute API](https://cloud.google.com/compute/docs/reference/rest/v1/) using:
+```
+gcloud services enable compute.googleapis.com
+```
+
 ## Task 1. Create Networking
 
 Use the Cloud Foundation Toolkit [Network module](https://github.com/terraform-google-modules/terraform-google-network) in `main.tf` to setup VPC network.

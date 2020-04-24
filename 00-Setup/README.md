@@ -50,8 +50,9 @@ gcloud config list
 ```
 
 **04 - Login and authorize gcloud to access GCP with your training user credential**
+Use the following command to authorize gcloud to run commands on your behalf. Logging in with application-default mode stores temporary credentials in a well-known location locally for applications like Terraform to use.
 ```
-gcloud auth login
+gcloud auth application-default login
 ```
 
 ## 3. Prepare you training GCP Project
@@ -61,18 +62,17 @@ gcloud auth login
 **Note**: **Skip** this section if you are attending an organized training session.
 
 You will need to enable the following Google Cloud APIs on the training project
+* [Service Usage API](https://cloud.google.com/serviceusage/docs/reference/rest)
 * [Cloud Resource Manager API](https://cloud.google.com/resource-manager/reference/rest/)
 * [Identity and Access Management (IAM) API](https://cloud.google.com/iam/docs/reference/rest)
 ```
+gcloud services enable serviceusage.googleapis.com
 gcloud services enable cloudresourcemanager.googleapis.com
 gcloud services enable iam.googleapis.com
 ```
 
 ### 3.2 IAM roles
-
-**Note**: **Skip** this section if you are attending an organized training session.
-
-You will need add the following IAM policy binding to your training project
+You will need add the following IAM policy binding to the account you'll be using in your training project
 * **Service Usage Admin** roles/serviceusage.serviceUsageAdmin
 * **Service Account Admin** roles/iam.serviceAccountAdmin
 * **Service Account Key Admin** roles/iam.serviceAccountKeyAdmin
@@ -84,6 +84,7 @@ gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="user:${GCP_ACCOUN
 gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="user:${GCP_ACCOUNT_EMAIL}" --role="roles/iam.serviceAccountKeyAdmin"
 gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="user:${GCP_ACCOUNT_EMAIL}" --role="roles/storage.admin"
 gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="user:${GCP_ACCOUNT_EMAIL}" --role="roles/logging.admin"
+gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="user:${GCP_ACCOUNT_EMAIL}" --role="roles/compute.admin"
 ```
 
 ### 3.3 Service Account
@@ -128,4 +129,5 @@ gcloud iam service-accounts keys create cft-training.json --iam-account=${SERVIC
 Supply the key to Terraform using the environment variable GOOGLE_CLOUD_KEYFILE_JSON, setting the value to the location of the file.
 ```
 export GOOGLE_CLOUD_KEYFILE_JSON="$(pwd)/cft-training.json"
+export GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_CLOUD_KEYFILE_JSON
 ```

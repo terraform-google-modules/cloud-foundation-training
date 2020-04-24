@@ -26,6 +26,14 @@ At the end of the exercise, you will have a GCS bucket for Remote State.
 * Create and Destroy GCS Bucket
 * Create another GCS Bucket for remote state for following exercises
 
+## Preparation: Enable APIs
+When using any new service for the first time in a GCP project, you'll need to enable the APIs that you'll be using.
+
+Enable the [Storage API](https://cloud.google.com/storage/docs/reference/rest) using:
+```
+gcloud services enable storage-api.googleapis.com
+```
+
 ## Task 1. Set Project
 Determine your Google Cloud [Project ID](https://cloud.google.com/sdk/gcloud/reference/projects/list), and select a [Region](https://cloud.google.com/compute/docs/regions-zones/#available) to provision resources.
 
