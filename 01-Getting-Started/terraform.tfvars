@@ -15,4 +15,4 @@
  */
 
 project_id = "" # Insert Project ID here
-region     = ""
+region     = "" # Insert Region here
