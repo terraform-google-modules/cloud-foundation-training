@@ -56,6 +56,7 @@
  */
 module "load_balancer" {
   source            = "GoogleCloudPlatform/lb-http/google"
+  version           = "~> 3.1"
   project           = var.project_id
   name              = "lab05-http-load-balancer"
   firewall_networks = [module.network.network_self_link]
