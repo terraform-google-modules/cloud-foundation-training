@@ -26,7 +26,7 @@ provider "google" {
  * - projects: [var.project_id]
  * - mode: "additive"
  * - bindings:
- *   - Members: "serviceAccount:cft-training@${var.project_id}.iam.gserviceaccount.com"
+ *   - Members: "serviceAccount:sa-cft-training@${var.project_id}.iam.gserviceaccount.com"
  *   - Role:
  *     - "roles/cloudfunctions.admin"
  *     - "roles/compute.admin"
