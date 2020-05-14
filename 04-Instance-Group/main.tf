@@ -34,7 +34,7 @@ resource "google_service_account" "instance_group" {
  * Task 1: Add IAM Role Member for Service Account (service_account_user)
  * - service_account_id: google_service_account.instance_group.name
  * - role: "roles/iam.serviceAccountUser"
- * - member: "serviceAccount:cft-training@${var.project_id}.iam.gserviceaccount.com"
+ * - member: "serviceAccount:sa-cft-training@${var.project_id}.iam.gserviceaccount.com"
  *
  * Reference - https://www.terraform.io/docs/providers/google/r/google_service_account_iam.html
  *
