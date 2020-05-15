@@ -75,7 +75,7 @@ resource "google_service_account" "image_processing_gcf_sa" {
 resource "google_service_account_iam_member" "service_account_user" {
   service_account_id = google_service_account.image_processing_gcf_sa.name
   role               = "roles/iam.serviceAccountUser"
-  member             = "serviceAccount:cft-training@${var.project_id}.iam.gserviceaccount.com"
+  member             = "serviceAccount:sa-cft-training@${var.project_id}.iam.gserviceaccount.com"
 }
 
 // Grant Storage Admin role for Cloud Function Runtime Service Account
