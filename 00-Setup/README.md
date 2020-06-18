@@ -31,7 +31,7 @@ Go to [Google Cloud SDK](https://cloud.google.com/sdk/docs/downloads-interactive
 ```
 export PROJECT_ID=YOUR_PROJECT_ID
 export GCP_ACCOUNT_EMAIL=YOUR_GCP_ACCOUNT_EMAIL
-export SERVICE_ACCOUNT=cft-training@${PROJECT_ID}.iam.gserviceaccount.com
+export SERVICE_ACCOUNT=sa-cft-training@${PROJECT_ID}.iam.gserviceaccount.com
 ```
 
 **02 - Verify the environment variables are set**
@@ -95,7 +95,7 @@ Following the [least privilidge principle](https://cloud.google.com/blog/product
 
 #### Create Service Account
 ```
-gcloud iam service-accounts create cft-training --description="CFT Training Terraform Service Account" --display-name="CFT Training"
+gcloud iam service-accounts create sa-cft-training --description="CFT Training Terraform Service Account" --display-name="CFT Training"
 ```
 
 #### Verify Service Account
@@ -121,13 +121,13 @@ Make sure you are in the cloud-foundation-training repository root directory
 
 Create and download a service account key for Terraform
 ```
-gcloud iam service-accounts keys create cft-training.json --iam-account=${SERVICE_ACCOUNT}
+gcloud iam service-accounts keys create sa-cft-training.json --iam-account=${SERVICE_ACCOUNT}
 ```
 
 #### Setup Terraform Credential
 
 Supply the key to Terraform using the environment variable GOOGLE_CLOUD_KEYFILE_JSON, setting the value to the location of the file.
 ```
-export GOOGLE_CLOUD_KEYFILE_JSON="$(pwd)/cft-training.json"
+export GOOGLE_CLOUD_KEYFILE_JSON="$(pwd)/sa-cft-training.json"
 export GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_CLOUD_KEYFILE_JSON
 ```
