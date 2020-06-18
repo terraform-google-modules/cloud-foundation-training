@@ -35,7 +35,7 @@ resource "random_id" "suffix" {
  * - runtime: "python37"
  * - source_directory: "${path.module}/function_source"
  * - bucket_force_destroy: true
- * - service_account_email: google_service_account.gcf_sa.email
+ * - service_account_email: google_service_account.image_processing_gcf_sa.email
  * - environment_variables
  *   - key: BLURRED_BUCKET_NAME
  *   - value: google_storage_bucket.image_processed.name
