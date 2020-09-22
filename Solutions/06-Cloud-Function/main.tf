@@ -45,6 +45,7 @@ resource "random_id" "suffix" {
  */
 module "image_processing_function" {
   source                = "terraform-google-modules/event-function/google"
+  version               = "~> 1.3.0"
   name                  = "lab06-cloud-function-${var.project_id}-${random_id.suffix.hex}"
   project_id            = var.project_id
   region                = var.region

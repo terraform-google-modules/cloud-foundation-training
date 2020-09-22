@@ -17,13 +17,13 @@
 provider "google" {
   project = var.project_id
   region  = var.region
-  version = "~> 3.9.0"
+  version = "~> 3.39.0"
 }
 
 /**
  * Task 1: Add a Global HTTP Load Balancer ("load_balancer")
  * - source: "GoogleCloudPlatform/lb-http/google"
- * - version: "~> 3.1"
+ * - version: "~> 3.1.0"
  * - project: var.project_id
  * - name: "lab05-http-load-balancer"
  * - firewall_networks: module.network.network_self_link

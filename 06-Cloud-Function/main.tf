@@ -17,7 +17,7 @@
 provider "google" {
   project = var.project_id
   region  = var.region
-  version = "~> 3.9.0"
+  version = "~> 3.39.0"
 }
 
 resource "random_id" "suffix" {
@@ -27,6 +27,7 @@ resource "random_id" "suffix" {
 /**
  * Task 1: Add Cloud Function ("image_processing_function")
  * - source: "terraform-google-modules/event-function/google"
+  * - version: "~> 1.3.0"
  * - name: "lab06-cloud-function-${var.project_id}-${random_id.suffix.hex}"
  * - project_id: var.project_id
  * - region: var.region (https://cloud.google.com/functions/docs/locations)

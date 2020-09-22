@@ -34,6 +34,7 @@
  */
 module "project_iam_bindings" {
   source   = "terraform-google-modules/iam/google//modules/projects_iam"
+  version  = "~> 6.2.0"
   projects = [var.project_id]
   mode     = "additive"
 
