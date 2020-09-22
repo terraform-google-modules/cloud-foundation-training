@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+provider "google" {
+  project = var.project_id
+  region  = var.region
+  version = "~> 3.39.0"
+}
+
 /**
  * Task 1: Add Network ("network")
  * - source: "terraform-google-modules/network/google"

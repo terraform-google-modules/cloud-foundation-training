@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+provider "google" {
+  project = var.project_id
+  region  = var.region
+  version = "~> 3.39.0"
+}
+
 /**
  * Task 1: Add a Global HTTP Load Balancer ("load_balancer")
   * - source: "GoogleCloudPlatform/lb-http/google"

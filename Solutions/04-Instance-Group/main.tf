@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+provider "google" {
+  project = var.project_id
+  region  = var.region
+  version = "~> 3.39.0"
+}
+
 # This startup script creates a web server application used for testing
 data "local_file" "instance_startup_script" {
   filename = "${path.module}/templates/startup.sh"
