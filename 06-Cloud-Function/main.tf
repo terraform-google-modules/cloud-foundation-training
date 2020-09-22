@@ -29,7 +29,7 @@ resource "random_id" "suffix" {
  * - source: "terraform-google-modules/event-function/google"
   * - version: "~> 1.3.0"
  * - name: "lab06-cloud-function-${var.project_id}-${random_id.suffix.hex}"
- * - project_id: var.project_id
+ * - project_id: module.project_iam_bindings.projects[0]
  * - region: var.region (https://cloud.google.com/functions/docs/locations)
  * - description: "Process image in GCS bucket"
  * - entry_point: "blur_images"

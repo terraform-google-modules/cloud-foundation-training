@@ -23,7 +23,7 @@ provider "google" {
 /**
  * Task 1: Add IAM Role Bindings (project_iam_bindings)
  * - source: "terraform-google-modules/iam/google//modules/projects_iam"
- * - version: "~> 6.2.0"
+ * - version: "~> 6.3.1"
  * - projects: [var.project_id]
  * - mode: "additive"
  * - bindings:

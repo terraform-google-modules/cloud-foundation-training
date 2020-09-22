@@ -24,7 +24,7 @@ provider "google" {
  * Task 1: Add a Global HTTP Load Balancer ("load_balancer")
  * - source: "GoogleCloudPlatform/lb-http/google"
  * - version: "~> 3.1.0"
- * - project: var.project_id
+ * - project: module.project_iam_bindings.projects[0]
  * - name: "lab05-http-load-balancer"
  * - firewall_networks: module.network.network_self_link
  * - target_tags: var.target_tags

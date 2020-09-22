@@ -42,7 +42,7 @@ resource "google_service_account_iam_member" "service_account_user" {
 /**
  * Task 2: Add Instance Template ("instance_template")
  * - source: terraform-google-modules/vm/google//modules/instance_template
- * - project_id: var.project_id
+ * - project_id: module.project_iam_bindings.projects[0]
  * - subnetwork: refer to subnet created in network.tf (module.network.subnets_self_links[0])
  * - source_image_family: "debian-9"
  * - source_image_project: "debian-cloud"
@@ -58,7 +58,7 @@ resource "google_service_account_iam_member" "service_account_user" {
 module "instance_template" {
   source               = "terraform-google-modules/vm/google//modules/instance_template"
   version              = "~> 4.0.0"
-  project_id           = var.project_id
+  project_id           = module.project_iam_bindings.projects[0]
   subnetwork           = module.network.subnets_self_links[0]
   source_image_family  = "debian-9"
   source_image_project = "debian-cloud"
@@ -73,7 +73,7 @@ module "instance_template" {
 /**
  * Task 3: Add Managed Instance Group ("managed_instance_group")
  * - source: terraform-google-modules/vm/google//modules/mig
- * - project_id: var.project_id
+ * - project_id: module.project_iam_bindings.projects[0]
  * - region: var.region
  * - target_size: 2
  * - hostname: "lab03-managed-instance"
@@ -88,7 +88,7 @@ module "instance_template" {
 module "managed_instance_group" {
   source            = "terraform-google-modules/vm/google//modules/mig"
   version           = "~> 4.0.0"
-  project_id        = var.project_id
+  project_id        = module.project_iam_bindings.projects[0]
   region            = var.region
   target_size       = 2
   hostname          = "lab03-managed-instance"

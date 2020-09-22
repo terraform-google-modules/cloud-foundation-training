@@ -17,7 +17,7 @@
 module "network" {
   source       = "terraform-google-modules/network/google"
   version      = "~> 2.5.0"
-  project_id   = var.project_id
+  project_id   = module.project_iam_bindings.projects[0]
   network_name = "lab04-vpc"
   routing_mode = "GLOBAL"
   subnets = [
@@ -32,7 +32,7 @@ module "network" {
 module "cloud_nat" {
   source        = "terraform-google-modules/cloud-nat/google"
   version       = "~> 1.3.0"
-  project_id    = var.project_id
+  project_id    = module.project_iam_bindings.projects[0]
   region        = var.region
   create_router = true
   router        = "lab04-router"
