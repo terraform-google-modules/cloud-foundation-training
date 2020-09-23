@@ -21,7 +21,7 @@ data "local_file" "instance_startup_script" {
 
 resource "google_service_account" "instance_group" {
   account_id = "lab05-instance-group"
-  project    = var.project_id
+  project    = module.project_iam_bindings.projects[0]
 }
 
 resource "google_service_account_iam_member" "service_account_user" {
