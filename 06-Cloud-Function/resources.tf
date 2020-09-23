@@ -76,7 +76,7 @@ resource "google_storage_bucket" "image_processed" {
 
 // Service Account for Cloud Function Runtime
 resource "google_service_account" "image_processing_gcf_sa" {
-  project      = var.project_id
+  project      = module.project_iam_bindings.projects[0]
   account_id   = "image-processing-gcf"
   display_name = "Image Processing Cloud Function Service Account"
 
@@ -91,7 +91,7 @@ resource "google_service_account_iam_member" "service_account_user" {
 
 // Grant Storage Admin role for Cloud Function Runtime Service Account
 resource "google_project_iam_member" "project" {
-  project = var.project_id
+  project = module.project_iam_bindings.projects[0]
   role    = "roles/storage.admin"
   member  = "serviceAccount:${google_service_account.image_processing_gcf_sa.email}"
 
