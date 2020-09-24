@@ -27,12 +27,18 @@ At the end of the exercise, you will have a VPC network with 1 subnet and 1 Clou
 * [Cloud NAT](https://cloud.google.com/nat/docs/overview)
 
 ## Preparation: Enable APIs
+
 When using any new service for the first time in a GCP project, you'll need to enable the APIs that you'll be using.
 
 Enable the [Compute API](https://cloud.google.com/compute/docs/reference/rest/v1/) using:
 ```
 gcloud services enable compute.googleapis.com
 ```
+
+## IAM dependencies for Service Account
+You may notice in `main.tf` that `project_id` is referenced through `module.project_iam_bindings.projects[0]` although it cloud be done by using `var.project_id`. This is done this way to create dependency on IAM module, which sets up permissions for Service Account used to provision resources. This way, it's guaranteed that IAM permissions will be provisioned before the resource/module referencing IAM module.
+
+In real-life situations this is not the case, as you should have setup all the permissions for terraform Service Account in separate seed project.
 
 ## Task 1. Create Networking
 

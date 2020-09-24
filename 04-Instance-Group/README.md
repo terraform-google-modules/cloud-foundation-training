@@ -26,6 +26,13 @@ At the end of this exercise, you'll have a set of VM instances provisioned on th
 * [Instance Template](https://cloud.google.com/compute/docs/instance-templates/)
 * [Managed Instance Group](https://cloud.google.com/compute/docs/instance-groups/)
 
+## IAM dependencies for Service Account
+
+You may notice in `main.tf` that `project_id` is referenced through `module.project_iam_bindings.projects[0]` although it cloud be done by using `var.project_id`. This is done this way to create dependency on IAM module, which sets up permissions for Se
+rvice Account used to provision resources. This way, it's guaranteed that IAM permissions will be provisioned before the resource/module referencing IAM module.
+
+In real-life situations this is not the case, as you should have setup all the permissions for terraform Service Account in separate seed project.
+
 ## Task 1. Create Instance Template
 
 Use the Cloud Foundation Toolkit [Instance Template](https://github.com/terraform-google-modules/terraform-google-vm/tree/master/modules/instance_template) module in `main.tf` to create an Instance Template
