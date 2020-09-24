@@ -17,7 +17,7 @@
 provider "google" {
   project = var.project_id
   region  = var.region
-  version = "~> 3.9.0"
+  version = "~> 3.39.0"
 }
 
 # This startup script creates a web server application used for testing
@@ -27,7 +27,7 @@ data "local_file" "instance_startup_script" {
 
 resource "google_service_account" "instance_group" {
   account_id = "lab04-instance-group"
-  project    = var.project_id
+  project    = module.project_iam_bindings.projects[0]
 }
 
 /**
@@ -46,7 +46,8 @@ resource "" "service_account_user" {
 /**
  * Task 2: Add Instance Template ("instance_template")
  * - source: terraform-google-modules/vm/google//modules/instance_template
- * - project_id: var.project_id
+ * - version: "~> 4.0.0"
+ * - project_id: module.project_iam_bindings.projects[0]
  * - subnetwork: refer to subnet created in network.tf (module.network.subnets_self_links[0])
  * - source_image_family: "debian-9"
  * - source_image_project: "debian-cloud"
@@ -66,7 +67,8 @@ module "instance_template" {
 /**
  * Task 3: Add Managed Instance Group ("managed_instance_group")
  * - source: terraform-google-modules/vm/google//modules/mig
- * - project_id: var.project_id
+ * - version: "~> 4.0.0"
+ * - project_id: module.project_iam_bindings.projects[0]
  * - region: var.region
  * - target_size: 2
  * - hostname: "lab04-managed-instance"

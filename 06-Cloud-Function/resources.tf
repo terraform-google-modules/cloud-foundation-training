@@ -23,6 +23,15 @@ resource "google_project_service" "cloudfunctions_api" {
   depends_on = [module.project_iam_bindings]
 }
 
+// Enable Cloud Build API (dependency for CF): cloudbuild.googleapis.com
+resource "google_project_service" "cloudbuild_api" {
+  project            = var.project_id
+  service            = "cloudbuild.googleapis.com"
+  disable_on_destroy = false
+
+  depends_on = [module.project_iam_bindings]
+}
+
 // Enable Cloud Storage API: storage-component.googleapis.com
 resource "google_project_service" "storage_component_api" {
   project            = var.project_id
@@ -34,30 +43,32 @@ resource "google_project_service" "storage_component_api" {
 
 // GCS Bucket to upload images
 resource "google_storage_bucket" "image_upload" {
-  name               = "lab06-image-upload-${var.project_id}-${random_id.suffix.hex}"
-  project            = var.project_id
-  location           = var.region
-  storage_class      = "REGIONAL"
-  force_destroy      = true
-  bucket_policy_only = true
+  name                        = "lab06-image-upload-${var.project_id}-${random_id.suffix.hex}"
+  project                     = module.project_iam_bindings.projects[0]
+  location                    = var.region
+  storage_class               = "REGIONAL"
+  force_destroy               = true
+  uniform_bucket_level_access = true
 
   depends_on = [
     google_project_service.cloudfunctions_api,
+    google_project_service.cloudbuild_api,
     google_project_service.storage_component_api
   ]
 }
 
 // GCS Bucket to output processed images
 resource "google_storage_bucket" "image_processed" {
-  name               = "lab06-image-processed-${var.project_id}-${random_id.suffix.hex}"
-  project            = var.project_id
-  location           = var.region
-  storage_class      = "REGIONAL"
-  force_destroy      = true
-  bucket_policy_only = true
+  name                        = "lab06-image-processed-${var.project_id}-${random_id.suffix.hex}"
+  project                     = module.project_iam_bindings.projects[0]
+  location                    = var.region
+  storage_class               = "REGIONAL"
+  force_destroy               = true
+  uniform_bucket_level_access = true
 
   depends_on = [
     google_project_service.cloudfunctions_api,
+    google_project_service.cloudbuild_api,
     google_project_service.storage_component_api,
     google_service_account_iam_member.service_account_user
   ]
@@ -65,7 +76,7 @@ resource "google_storage_bucket" "image_processed" {
 
 // Service Account for Cloud Function Runtime
 resource "google_service_account" "image_processing_gcf_sa" {
-  project      = var.project_id
+  project      = module.project_iam_bindings.projects[0]
   account_id   = "image-processing-gcf"
   display_name = "Image Processing Cloud Function Service Account"
 
@@ -80,7 +91,7 @@ resource "google_service_account_iam_member" "service_account_user" {
 
 // Grant Storage Admin role for Cloud Function Runtime Service Account
 resource "google_project_iam_member" "project" {
-  project = var.project_id
+  project = module.project_iam_bindings.projects[0]
   role    = "roles/storage.admin"
   member  = "serviceAccount:${google_service_account.image_processing_gcf_sa.email}"
 

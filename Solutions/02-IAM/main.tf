@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+provider "google" {
+  project = var.project_id
+  region  = var.region
+  version = "~> 3.39.0"
+}
+
 /**
  * Task 1: Add IAM Role Bindings (project_iam_bindings)
  * - source: "terraform-google-modules/iam/google//modules/projects_iam"
@@ -34,6 +40,7 @@
  */
 module "project_iam_bindings" {
   source   = "terraform-google-modules/iam/google//modules/projects_iam"
+  version  = "~> 6.3.1"
   projects = [var.project_id]
   mode     = "additive"
 
@@ -51,9 +58,6 @@ module "project_iam_bindings" {
       local.iam_member,
     ]
     "roles/serviceusage.serviceUsageAdmin" = [
-      local.iam_member,
-    ]
-    "roles/storage.admin" = [
       local.iam_member,
     ]
   }

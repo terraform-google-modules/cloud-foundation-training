@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+provider "google" {
+  project = var.project_id
+  region  = var.region
+  version = "~> 3.39.0"
+}
+
 resource "random_id" "suffix" {
   byte_length = 4
 }
@@ -22,7 +28,7 @@ resource "random_id" "suffix" {
  * Task 1: Add Cloud Function ("image_processing_function")
  * - source: "terraform-google-modules/event-function/google"
  * - name: "lab06-cloud-function-${var.project_id}-${random_id.suffix.hex}"
- * - project_id: var.project_id
+ * - project_id: module.project_iam_bindings.projects[0]
  * - region: var.region (https://cloud.google.com/functions/docs/locations)
  * - description: "Process image in GCS bucket"
  * - entry_point: "blur_images"
@@ -45,8 +51,9 @@ resource "random_id" "suffix" {
  */
 module "image_processing_function" {
   source                = "terraform-google-modules/event-function/google"
+  version               = "~> 1.3.0"
   name                  = "lab06-cloud-function-${var.project_id}-${random_id.suffix.hex}"
-  project_id            = var.project_id
+  project_id            = module.project_iam_bindings.projects[0]
   region                = var.region
   description           = "Process image in GCS bucket"
   entry_point           = "blur_images"

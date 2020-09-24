@@ -17,13 +17,14 @@
 provider "google" {
   project = var.project_id
   region  = var.region
-  version = "~> 3.9.0"
+  version = "~> 3.39.0"
 }
 
 /**
  * Task 1: Add Network ("network")
  * - source: "terraform-google-modules/network/google"
- * - project_id: var.project_id
+ * - version: "~> 2.5.0"
+ * - project_id: module.project_iam_bindings.projects[0]
  * - network_name: "lab03-vpc"
  * - routing_mode: "GLOBAL"
  * - subnets:
@@ -41,7 +42,8 @@ module "network" {
 /**
  * Task 2: Add Cloud NAT Instance ("cloud_nat")
  * - source: "terraform-google-modules/cloud-nat/google"
- * - project_id: var.project_id
+ * - version: "~> 1.3.0"
+ * - project_id: module.project_iam_bindings.projects[0]
  * - region: var.region
  * - create_router: true
  * - router: "lab03-router"
