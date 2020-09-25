@@ -29,13 +29,6 @@ At the end of this exercise, you'll have a Google Cloud Function and 2 Google Cl
 
 **Note**: This lab is based on the [Cloud Function ImageMagick Tutorial](https://cloud.google.com/functions/docs/tutorials/imagemagick#functions-prepare-environment-python)
 
-## IAM dependencies for Service Account
-
-You may notice in `main.tf` that `project_id` is referenced through `module.project_iam_bindings.projects[0]` although it cloud be done by using `var.project_id`. This is done this way to create dependency on IAM module, which sets up permissions for Se
-rvice Account used to provision resources. This way, it's guaranteed that IAM permissions will be provisioned before the resource/module referencing IAM module.
-
-In real-life situations this is not the case, as you should have setup all the permissions for terraform Service Account in separate seed project.
-
 ## Preparation: Enable APIs
 When using any new service for the first time in a GCP project, you'll need to enable the APIs that you'll be using.
 
