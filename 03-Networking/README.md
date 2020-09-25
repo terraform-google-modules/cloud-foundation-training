@@ -36,9 +36,9 @@ gcloud services enable compute.googleapis.com
 ```
 
 ## IAM dependencies for Service Account
-You may notice in `main.tf` that `project_id` is referenced through `module.project_iam_bindings.projects[0]` although it cloud be done by using `var.project_id`. This is done this way to create dependency on IAM module, which sets up permissions for Service Account used to provision resources. This way, it's guaranteed that IAM permissions will be provisioned before the resource/module referencing IAM module.
+You may notice in `main.tf` that `project_id` is [referenced](https://github.com/terraform-google-modules/cloud-foundation-training/blob/master/03-Networking/main.tf#L27) through `module.project_iam_bindings.projects[0]` although it could be done by using `var.project_id`. This is done so as to create dependency on IAM module, which sets up permissions for Service Account used to provision resources. This way, it's guaranteed that IAM permissions will be provisioned before the resource/module referencing IAM module.
 
-In real-life situations this is not the case, as you should have setup all the permissions for terraform Service Account in separate seed project.
+In real-life situations, you will most likely have setup all the permissions needed for the Terraform Service Account in a separate [seed project](https://github.com/terraform-google-modules/terraform-google-bootstrap#features).
 
 ## Task 1. Create Networking
 
