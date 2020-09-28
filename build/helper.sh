@@ -31,12 +31,12 @@ add_solutions(){
         echo "${modules_path}/${file} does not exist, exiting."
         exit 1
     fi
-    if [[ ! -f "${solution_path}/${file}{$SOLUTION_EXT}" ]]; then
-        echo "${solution_path}/${file}{$SOLUTION_EXT} does not exist, exiting."
+    if [[ ! -f "${solution_path}/${file}${SOLUTION_EXT}" ]]; then
+        echo "${solution_path}/${file}${SOLUTION_EXT} does not exist, exiting."
         exit 1
     fi
-    echo "Copying ${solution_path}/${file}{$SOLUTION_EXT} to ${modules_path}/${file}"
-    cp -f "${solution_path}/${file}{$SOLUTION_EXT}" "${modules_path}/${file}"
+    echo "Copying ${solution_path}/${file}${SOLUTION_EXT} to ${modules_path}/${file}"
+    cp -f "${solution_path}/${file}${SOLUTION_EXT}" "${modules_path}/${file}"
 }
 
 for module in $(jq -r -c '.[]' "${SOLUTION_JSON}"); do
