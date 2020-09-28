@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-output "members" {
-  value = module.project_iam_bindings.members
-}
+# Task 3: Declare input variables for project and region
+# https://www.terraform.io/docs/configuration/variables.html
 
-output "projects" {
-  value = module.project_iam_bindings.projects
+variable "project_id" {
+  description = "GCP Project ID"
+  type = string
 }
-
-output "roles" {
-  value = module.project_iam_bindings.roles
+variable "region" {
+  description = "GCP Region"
+  type = string
 }
