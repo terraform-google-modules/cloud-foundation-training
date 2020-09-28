@@ -70,7 +70,7 @@ docker_test_lint:
 	docker run --rm -it \
 		-v "$(CURDIR)":/workspace \
 		$(REGISTRY_URL)/${DOCKER_IMAGE_DEVELOPER_TOOLS}:${DOCKER_TAG_VERSION_DEVELOPER_TOOLS} \
-		/bin/bash -c 'build/helper.sh && /usr/local/bin/test_lint.sh'
+		/bin/bash -c 'build/helper.sh && pip3 install flake8 && /usr/local/bin/test_lint.sh'
 
 # Generate documentation
 .PHONY: docker_generate_docs
