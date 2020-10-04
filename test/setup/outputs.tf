@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-output "load_balancer_ip" {
-  value = module.load_balancer.external_ip
+output "project_id" {
+  value = module.training-project.project_id
 }
 
-output "backend_services" {
-  value = module.load_balancer.backend_services
+output "sa_key" {
+  value     = google_service_account_key.int_test.private_key
+  sensitive = true
 }
 
-output "http_proxy" {
-  value = module.load_balancer.http_proxy
+output "int_sa" {
+  value = google_service_account.int_test.email
 }
-

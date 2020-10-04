@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,15 +14,18 @@
  * limitations under the License.
  */
 
-output "load_balancer_ip" {
-  value = module.load_balancer.external_ip
+output "project_id" {
+  value = var.project_id
 }
 
-output "backend_services" {
-  value = module.load_balancer.backend_services
+output "storage_bucket_image_upload" {
+  value = module.example.storage_bucket_image_upload
 }
 
-output "http_proxy" {
-  value = module.load_balancer.http_proxy
+output "storage_bucket_image_processed" {
+  value = module.example.storage_bucket_image_processed
 }
 
+output "cloud_function_name" {
+  value = module.example.cloud_function_name
+}

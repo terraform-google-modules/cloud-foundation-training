@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,16 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-output "load_balancer_ip" {
-  value = module.load_balancer.external_ip
+variable "org_id" {
+  description = "The numeric organization id"
 }
 
-output "backend_services" {
-  value = module.load_balancer.backend_services
+variable "folder_id" {
+  description = "The folder to deploy in"
 }
 
-output "http_proxy" {
-  value = module.load_balancer.http_proxy
+variable "billing_account" {
+  description = "The billing account id associated with the project, e.g. XXXXXX-YYYYYY-ZZZZZZ"
 }
-

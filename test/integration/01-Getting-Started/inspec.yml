@@ -1,0 +1,12 @@
+name: 01-Getting-Started
+depends:
+  - name: inspec-gcp
+    git: https://github.com/inspec/inspec-gcp.git
+    tag: v1.8.0
+attributes:
+  - name: project_id
+    required: true
+    type: string
+  - name: remote_state_bucket
+    required: true
+    type: string
