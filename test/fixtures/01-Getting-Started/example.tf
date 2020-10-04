@@ -15,7 +15,7 @@
  */
 
 module "example" {
-  source     = "../../../02-IAM"
+  source     = "../../../01-Getting-Started"
   project_id = var.project_id
   region     = "us-central1"
 }

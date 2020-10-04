@@ -82,4 +82,3 @@ suites:
           backend: gcp
           controls:
             - gcloud
-  

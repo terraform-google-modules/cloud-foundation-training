@@ -15,5 +15,5 @@
  */
 
 output "remote_state_bucket" {
-    value = google_storage_bucket.remote_state.url
+  value = google_storage_bucket.remote_state.url
 }
