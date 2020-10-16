@@ -22,7 +22,7 @@ steps:
   - 'TF_VAR_billing_account=$_BILLING_ACCOUNT'
 - id: make solutions
   name: 'gcr.io/cloud-foundation-cicd/$_DOCKER_IMAGE_DEVELOPER_TOOLS:$_DOCKER_TAG_VERSION_DEVELOPER_TOOLS'
-  args: ['/bin/bash', '-c', 'source /usr/local/bin/task_helper_functions.sh && build/helper.sh']
+  args: ['/bin/bash', '-c', 'source /usr/local/bin/task_helper_functions.sh && ./build/helper.sh']
 - id: create 01-Getting-Started
   name: 'gcr.io/cloud-foundation-cicd/$_DOCKER_IMAGE_DEVELOPER_TOOLS:$_DOCKER_TAG_VERSION_DEVELOPER_TOOLS'
   args: ['/bin/bash', '-c', 'source /usr/local/bin/task_helper_functions.sh && kitchen_do create 01-Getting-Started']

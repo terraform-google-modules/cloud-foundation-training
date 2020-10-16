@@ -16,7 +16,7 @@ timeout: 900s
 steps:
 - id: 'lint-tests'
   name: 'gcr.io/cloud-foundation-cicd/$_DOCKER_IMAGE_DEVELOPER_TOOLS:$_DOCKER_TAG_VERSION_DEVELOPER_TOOLS'
-  args: ['build/helper.sh && pip3 install flake8 && /usr/local/bin/test_lint.sh']
+  args: ['/bin/bash', '-c', './build/helper.sh && pip3 install flake8 && /usr/local/bin/test_lint.sh']
 tags:
 - 'ci'
 - 'lint'
