@@ -13,8 +13,8 @@
 # limitations under the License.
 
 cloud_function_name = attribute("cloud_function_name")
-storage_bucket_image_processed = attribute("storage_bucket_image_processed")
-storage_bucket_image_upload = attribute("storage_bucket_image_upload")
+storage_bucket_image_processed = attribute("storage_bucket_image_processed").split("//")[1]
+storage_bucket_image_upload = attribute("storage_bucket_image_upload").split("//")[1]
 project_id = attribute("project_id")
 
 control "gcloud" do

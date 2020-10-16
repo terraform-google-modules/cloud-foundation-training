@@ -34,7 +34,7 @@ suites:
     verifier:
       systems:
         - name: 01-Getting-Started
-          backend: local
+          backend: gcp
           controls:
             - gcloud
   - name: "02-IAM"

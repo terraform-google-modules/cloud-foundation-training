@@ -13,9 +13,10 @@
 # limitations under the License.
 
 project_id = attribute("project_id")
-remote_state_bucket = attribute("remote_state_bucket")
+remote_state_bucket = attribute("remote_state_bucket").split("//")[1]
 
 control "gcloud" do
+  title "Check 01-Getting-Started"
   describe google_storage_bucket(project: project_id, name: remote_state_bucket) do
     it { should exist }
   end
