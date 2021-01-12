@@ -1,0 +1,21 @@
+name: 03-Networking
+depends:
+  - name: inspec-gcp
+    git: https://github.com/inspec/inspec-gcp.git
+    tag: v1.8.0
+attributes:
+  - name: project_id
+    required: true
+    type: string
+  - name: cloud_nat
+    required: true
+    type: string
+  - name: cloud_nat_router
+    required: true
+    type: string
+  - name: network
+    required: true
+    type: string
+  - name: subnets
+    required: true
+    type: array

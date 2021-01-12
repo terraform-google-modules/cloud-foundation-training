@@ -1,0 +1,11 @@
+name: 02-IAM
+attributes:
+  - name: project_id
+    required: true
+    type: string
+  - name: roles
+    required: true
+    type: array
+  - name: members
+    required: true
+    type: array

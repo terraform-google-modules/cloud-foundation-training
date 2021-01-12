@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,15 +14,7 @@
  * limitations under the License.
  */
 
-output "load_balancer_ip" {
-  value = module.load_balancer.external_ip
+variable "project_id" {
+  type        = string
+  description = "The GCP project to use for integration tests"
 }
-
-output "backend_services" {
-  value = module.load_balancer.backend_services
-}
-
-output "http_proxy" {
-  value = module.load_balancer.http_proxy
-}
-

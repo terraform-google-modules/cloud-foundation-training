@@ -1,0 +1,46 @@
+[
+    {
+      "modules_path": "01-Getting-Started",
+      "solution_path": "Solutions/01-Getting-Started",
+      "files_to_replace": [
+        "main.tf",
+        "variables.tf",
+        "output.tf"
+      ]
+    },
+    {
+      "modules_path": "02-IAM",
+      "solution_path": "Solutions/02-IAM",
+      "files_to_replace": [
+        "main.tf"
+      ]
+    },
+    {
+      "modules_path": "03-Networking",
+      "solution_path": "Solutions/03-Networking",
+      "files_to_replace": [
+        "main.tf"
+      ]
+    },
+    {
+      "modules_path": "04-Instance-Group",
+      "solution_path": "Solutions/04-Instance-Group",
+      "files_to_replace": [
+        "main.tf"
+      ]
+    },
+    {
+      "modules_path": "05-Load-Balancer",
+      "solution_path": "Solutions/05-Load-Balancer",
+      "files_to_replace": [
+        "main.tf"
+      ]
+    },
+    {
+      "modules_path": "06-Cloud-Function",
+      "solution_path": "Solutions/06-Cloud-Function",
+      "files_to_replace": [
+        "main.tf"
+      ]
+    }
+  ]

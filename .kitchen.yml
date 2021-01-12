@@ -1,0 +1,84 @@
+# Copyright 2020 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+---
+driver:
+  name: "terraform"
+  command_timeout: 2700
+
+provisioner:
+  name: "terraform"
+
+verifier:
+  name: terraform
+  color: false
+  fail_fast: false
+
+platforms:
+  - name: local
+
+suites:
+  - name: "01-Getting-Started"
+    driver:
+      root_module_directory: test/fixtures/01-Getting-Started
+    verifier:
+      systems:
+        - name: 01-Getting-Started
+          backend: gcp
+          controls:
+            - gcloud
+  - name: "02-IAM"
+    driver:
+      root_module_directory: test/fixtures/02-IAM
+    verifier:
+      systems:
+        - name: 02-IAM
+          backend: local
+          controls:
+            - gcloud
+  - name: "03-Networking"
+    driver:
+      root_module_directory: test/fixtures/03-Networking
+    verifier:
+      systems:
+        - name: 03-Networking
+          backend: gcp
+          controls:
+            - gcloud
+  - name: "04-Instance-Group"
+    driver:
+      root_module_directory: test/fixtures/04-Instance-Group
+    verifier:
+      systems:
+        - name: 04-Instance-Group
+          backend: gcp
+          controls:
+            - gcloud
+  - name: "05-Load-Balancer"
+    driver:
+      root_module_directory: test/fixtures/05-Load-Balancer
+    verifier:
+      systems:
+        - name: 05-Load-Balancer
+          backend: gcp
+          controls:
+            - gcloud
+  - name: "06-Cloud-Function"
+    driver:
+      root_module_directory: test/fixtures/06-Cloud-Function
+    verifier:
+      systems:
+        - name: 06-Cloud-Function
+          backend: gcp
+          controls:
+            - gcloud

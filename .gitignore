@@ -33,5 +33,24 @@ override.tf.json
 #
 # !example_override.tf
 
-*.json
 *.zip
+
+# Crash log files
+crash.log
+
+# Kitchen files
+**/inspec.lock
+**.gem
+**/.kitchen
+**/.kitchen.local.yml
+**/Gemfile.lock
+
+test/fixtures/shared/terraform.tfvars
+
+test/integration/gcloud/config.sh
+test/integration/tmp
+
+credentials.json
+
+# File to populate env vars used by Docker test runs
+.envrc

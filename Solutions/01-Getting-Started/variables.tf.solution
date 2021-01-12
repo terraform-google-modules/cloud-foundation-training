@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,15 +14,14 @@
  * limitations under the License.
  */
 
-output "load_balancer_ip" {
-  value = module.load_balancer.external_ip
-}
+# Task 3: Declare input variables for project and region
+# https://www.terraform.io/docs/configuration/variables.html
 
-output "backend_services" {
-  value = module.load_balancer.backend_services
+variable "project_id" {
+  description = "GCP Project ID"
+  type        = string
 }
-
-output "http_proxy" {
-  value = module.load_balancer.http_proxy
+variable "region" {
+  description = "GCP Region"
+  type        = string
 }
-

@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,15 +14,18 @@
  * limitations under the License.
  */
 
+output "project_id" {
+  value = var.project_id
+}
+
 output "load_balancer_ip" {
-  value = module.load_balancer.external_ip
+  value = module.example.load_balancer_ip
 }
 
 output "backend_services" {
-  value = module.load_balancer.backend_services
+  value = module.example.backend_services.default.name
 }
 
 output "http_proxy" {
-  value = module.load_balancer.http_proxy
+  value = module.example.http_proxy
 }
-

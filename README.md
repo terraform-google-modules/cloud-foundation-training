@@ -1,5 +1,5 @@
 # Cloud Foundation Toolkit Training Labs
-This repository contains open-source training labs for building infrastructure in Google Cloud Platform using [Cloud Foundation Toolkit](https://cloud.google.com/foundation-toolkit) Terraform [modules](https://github.com/terraform-google-modules). 
+This repository contains open-source training labs for building infrastructure in Google Cloud Platform using [Cloud Foundation Toolkit](https://cloud.google.com/foundation-toolkit) Terraform [modules](https://github.com/terraform-google-modules).
 
 ## Getting Started
 The training labs are presented as a set of walkthroughs designed to introduce Terraform, Google Cloud Platform, and Cloud Foundation Toolkit concepts.
