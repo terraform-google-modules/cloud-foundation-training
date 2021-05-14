@@ -22,11 +22,11 @@ module "training-project" {
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 10.0"
 
-  name                 = "ci-training-${random_id.random_project_id_suffix.hex}"
-  random_project_id    = true
-  org_id               = var.org_id
-  folder_id            = var.folder_id
-  billing_account      = var.billing_account
+  name              = "ci-training-${random_id.random_project_id_suffix.hex}"
+  random_project_id = true
+  org_id            = var.org_id
+  folder_id         = var.folder_id
+  billing_account   = var.billing_account
 
   auto_create_network = true
 
