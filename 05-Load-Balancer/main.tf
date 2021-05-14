@@ -17,7 +17,7 @@
 provider "google" {
   project = var.project_id
   region  = var.region
-  version = "~> 3.39.0"
+  version = "~> 3.53"
 }
 
 /**
@@ -37,6 +37,12 @@ provider "google" {
  *     - timeout_sec: null
  *     - connection_draining_timeout_sec: null
  *     - enable_cdn: null
+ *     - session_affinity: null
+ *     - security_policy: null
+ *     - affinity_cookie_ttl_sec: null
+ *     - log_config: null
+ *     - custom_request_headers: null
+ *     - iap_config: null
  *     - health_check:
  *       - request_path: "/"
  *       - port: 80
@@ -45,6 +51,7 @@ provider "google" {
  *       - healthy_threshold:   null
  *       - unhealthy_threshold: null
  *       - host:                null
+  *      - logging:             null
  *   - groups:
  *     - group: module.managed_instance_group.instance_group
  *     - balancing_mode: null

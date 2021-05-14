@@ -20,14 +20,13 @@ resource "random_id" "random_project_id_suffix" {
 
 module "training-project" {
   source  = "terraform-google-modules/project-factory/google"
-  version = "~> 9.1"
+  version = "~> 10.0"
 
   name                 = "ci-training-${random_id.random_project_id_suffix.hex}"
   random_project_id    = true
   org_id               = var.org_id
   folder_id            = var.folder_id
   billing_account      = var.billing_account
-  skip_gcloud_download = true
 
   auto_create_network = true
 

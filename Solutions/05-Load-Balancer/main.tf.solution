@@ -17,7 +17,7 @@
 provider "google" {
   project = var.project_id
   region  = var.region
-  version = "~> 3.39.0"
+  version = "~> 3.53"
 }
 
 /**
@@ -77,6 +77,12 @@ module "load_balancer" {
       timeout_sec                     = null
       connection_draining_timeout_sec = null
       enable_cdn                      = null
+      session_affinity                = null
+      security_policy                 = null
+      affinity_cookie_ttl_sec         = null
+      log_config                      = null
+      custom_request_headers          = null
+      iap_config                      = null
 
       health_check = {
         check_interval_sec  = null
@@ -86,6 +92,7 @@ module "load_balancer" {
         request_path        = "/"
         port                = 80
         host                = null
+        logging             = null
       }
 
       groups = [
