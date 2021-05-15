@@ -40,9 +40,14 @@ provider "google" {
  *     - session_affinity: null
  *     - security_policy: null
  *     - affinity_cookie_ttl_sec: null
- *     - log_config: null
  *     - custom_request_headers: null
- *     - iap_config: null
+ *     - log_config:
+ *       - enable: false
+ *       - sample_rate: null
+ *     - iap_config:
+ *       - enable: false
+ *       - oauth2_client_id: ""
+ *       - oauth2_client_secret: ""
  *     - health_check:
  *       - request_path: "/"
  *       - port: 80
