@@ -17,13 +17,13 @@
 provider "google" {
   project = var.project_id
   region  = var.region
-  version = "~> 3.39.0"
+  version = "~> 3.53"
 }
 
 /**
  * Task 1: Add Network ("network")
  * - source: "terraform-google-modules/network/google"
- * - version: "~> 2.5.0"
+ * - version: "~> 3.2.2"
  * - project_id: module.project_iam_bindings.projects[0]
  * - network_name: "lab03-vpc"
  * - routing_mode: "GLOBAL"

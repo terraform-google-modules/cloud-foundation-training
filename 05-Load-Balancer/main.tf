@@ -17,13 +17,13 @@
 provider "google" {
   project = var.project_id
   region  = var.region
-  version = "~> 3.39.0"
+  version = "~> 3.53"
 }
 
 /**
  * Task 1: Add a Global HTTP Load Balancer ("load_balancer")
  * - source: "GoogleCloudPlatform/lb-http/google"
- * - version: "~> 3.1.0"
+ * - version: "~> 5.0.0"
  * - project: module.project_iam_bindings.projects[0]
  * - name: "lab05-http-load-balancer"
  * - firewall_networks: module.network.network_self_link
@@ -37,6 +37,17 @@ provider "google" {
  *     - timeout_sec: null
  *     - connection_draining_timeout_sec: null
  *     - enable_cdn: null
+ *     - session_affinity: null
+ *     - security_policy: null
+ *     - affinity_cookie_ttl_sec: null
+ *     - custom_request_headers: null
+ *     - log_config:
+ *       - enable: false
+ *       - sample_rate: null
+ *     - iap_config:
+ *       - enable: false
+ *       - oauth2_client_id: ""
+ *       - oauth2_client_secret: ""
  *     - health_check:
  *       - request_path: "/"
  *       - port: 80
@@ -45,6 +56,7 @@ provider "google" {
  *       - healthy_threshold:   null
  *       - unhealthy_threshold: null
  *       - host:                null
+  *      - logging:             null
  *   - groups:
  *     - group: module.managed_instance_group.instance_group
  *     - balancing_mode: null

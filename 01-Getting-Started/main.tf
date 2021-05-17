@@ -18,7 +18,7 @@
  * Task 2: Initialize Terraform with google provider
  * - project: var.project_id
  * - region: var.region
- * - version: "~> 3.39.0"
+ * - version: "~> 3.53"
  *
  * Reference - https://www.terraform.io/docs/providers/google/index.html
  *
@@ -27,7 +27,7 @@
 provider "google" {
   project = var.project_id
   region  = var.region
-  version = "~> 3.39.0"
+  version = "~> 3.53"
 }
 */
 
