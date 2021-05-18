@@ -25,7 +25,7 @@ data "terraform_remote_state" "network" {
   backend = "gcs"
 
   config = {
-    bucket  = "<my-project-id>-state-bucket" # Update this too
-    prefix  = "terraform/lab/network"
+    bucket = "<my-project-id>-state-bucket" # Update this too
+    prefix = "terraform/lab/network"
   }
 }

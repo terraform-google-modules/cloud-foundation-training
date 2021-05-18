@@ -20,7 +20,7 @@ module "vpc" {
   version = "~> 3.2.2"
 
   # Give the network a name and project
-  project_id   = "${google_project_service.compute.project}"
+  project_id   = google_project_service.compute.project
   network_name = "my-custom-network"
 
   subnets = [
