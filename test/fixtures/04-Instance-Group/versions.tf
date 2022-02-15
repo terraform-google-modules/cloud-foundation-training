@@ -14,10 +14,13 @@
  * limitations under the License.
  */
 
-provider "google" {
-  version = "3.53"
-}
-
-provider "google-beta" {
-  version = "3.53"
+terraform {
+  required_providers {
+    google = {
+      version = "~> 3.53"
+    }
+    google-beta = {
+      version = "~> 3.53"
+    }
+  }
 }
