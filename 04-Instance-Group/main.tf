@@ -21,7 +21,7 @@ provider "google" {
 terraform {
   required_providers {
     google = {
-      version = "~> 3.53"
+      version = "~> 4.0"
     }
   }
 }
@@ -52,7 +52,7 @@ resource "" "service_account_user" {
 /**
  * Task 2: Add Instance Template ("instance_template")
  * - source: terraform-google-modules/vm/google//modules/instance_template
- * - version: "~> 6.4.0"
+ * - version: "~> 7.5.0"
  * - project_id: module.project_iam_bindings.projects[0]
  * - subnetwork: refer to subnet created in network.tf (module.network.subnets_self_links[0])
  * - source_image_family: "debian-9"
@@ -73,7 +73,7 @@ module "instance_template" {
 /**
  * Task 3: Add Managed Instance Group ("managed_instance_group")
  * - source: terraform-google-modules/vm/google//modules/mig
- * - version: "~> 6.4.0"
+ * - version: "~> 7.5.0"
  * - project_id: module.project_iam_bindings.projects[0]
  * - region: var.region
  * - target_size: 2
