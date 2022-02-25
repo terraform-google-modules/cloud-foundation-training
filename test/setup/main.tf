@@ -20,7 +20,7 @@ resource "random_id" "random_project_id_suffix" {
 
 module "training-project" {
   source  = "terraform-google-modules/project-factory/google"
-  version = "~> 10.0"
+  version = "~> 11.3.1"
 
   name              = "ci-training-${random_id.random_project_id_suffix.hex}"
   random_project_id = true

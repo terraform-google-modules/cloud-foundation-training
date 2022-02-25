@@ -47,6 +47,7 @@ terraform {
  *     - security_policy: null
  *     - affinity_cookie_ttl_sec: null
  *     - custom_request_headers: null
+ *     - custom_response_headers: null
  *     - log_config:
  *       - enable: false
  *       - sample_rate: null
