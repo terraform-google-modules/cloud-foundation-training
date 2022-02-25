@@ -21,7 +21,7 @@ provider "google" {
 terraform {
   required_providers {
     google = {
-      version = "~> 3.53"
+      version = "~> 4.0"
     }
   }
 }
@@ -36,7 +36,7 @@ terraform {
  * - backends: (Set rest of inputs to null)
  *   - default
  *     - port_name: "http"
- *     - protcol: "HTTP"
+ *     - protocol: "HTTP"
  *     - port: 80
  *     - description: null
  *     - timeout_sec: null
@@ -68,7 +68,7 @@ terraform {
  */
 module "load_balancer" {
   source            = "GoogleCloudPlatform/lb-http/google"
-  version           = "~> 5.0.0"
+  version           = "~> 6.2.0"
   project           = module.project_iam_bindings.projects[0]
   name              = "lab05-http-load-balancer"
   firewall_networks = [module.network.network_self_link]
