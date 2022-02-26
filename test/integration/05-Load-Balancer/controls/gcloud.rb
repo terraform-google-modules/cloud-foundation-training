@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-backend_services = attribute("backend_services")
+backend_service = attribute("backend_service")
 project_id = attribute("project_id")
 
 control "gcloud" do

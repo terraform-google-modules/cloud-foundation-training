@@ -22,8 +22,8 @@ output "load_balancer_ip" {
   value = module.example.load_balancer_ip
 }
 
-output "backend_services" {
-  value = module.example.backend_services.default.name
+output "backend_service" {
+  value = module.example.backend_service.default.name
 }
 
 output "http_proxy" {
