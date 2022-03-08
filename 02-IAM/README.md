@@ -31,7 +31,7 @@ Use the Cloud Foundation Toolkit [IAM module](https://github.com/terraform-googl
 
 ### backend.tf
 
-Fill in `backend.tf` the bucket name created from [00-Setup](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/00-Setup/README.md)
+Fill in `backend.tf` the bucket name created from [01-Getting-Started](https://github.com/terraform-google-modules/cloud-foundation-training/tree/master/01-Getting-Started/README.md)
 
 ### terraform.tfvars
 

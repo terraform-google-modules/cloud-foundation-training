@@ -17,7 +17,13 @@
 provider "google" {
   project = var.project_id
   region  = var.region
-  version = "~> 3.53"
+}
+terraform {
+  required_providers {
+    google = {
+      version = "~> 4.0"
+    }
+  }
 }
 
 resource "random_id" "suffix" {
@@ -51,7 +57,7 @@ resource "random_id" "suffix" {
  */
 module "image_processing_function" {
   source                = "terraform-google-modules/event-function/google"
-  version               = "~> 1.3.0"
+  version               = "~> 2.2.0"
   name                  = "lab06-cloud-function-${var.project_id}-${random_id.suffix.hex}"
   project_id            = module.project_iam_bindings.projects[0]
   region                = var.region

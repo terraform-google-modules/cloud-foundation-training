@@ -23,7 +23,7 @@ output "load_balancer_ip" {
 }
 
 output "backend_services" {
-  value = module.example.backend_services.default.name
+  value = nonsensitive(module.example.backend_services.default.name)
 }
 
 output "http_proxy" {

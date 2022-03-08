@@ -17,13 +17,19 @@
 provider "google" {
   project = var.project_id
   region  = var.region
-  version = "~> 3.53"
+}
+terraform {
+  required_providers {
+    google = {
+      version = "~> 4.0"
+    }
+  }
 }
 
 /**
  * Task 1: Add a Global HTTP Load Balancer ("load_balancer")
  * - source: "GoogleCloudPlatform/lb-http/google"
- * - version: "~> 5.0.0"
+ * - version: "~> 6.2.0"
  * - project: module.project_iam_bindings.projects[0]
  * - name: "lab05-http-load-balancer"
  * - firewall_networks: module.network.network_self_link
@@ -41,6 +47,7 @@ provider "google" {
  *     - security_policy: null
  *     - affinity_cookie_ttl_sec: null
  *     - custom_request_headers: null
+ *     - custom_response_headers: null
  *     - log_config:
  *       - enable: false
  *       - sample_rate: null

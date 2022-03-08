@@ -17,13 +17,19 @@
 provider "google" {
   project = var.project_id
   region  = var.region
-  version = "~> 3.53"
+}
+terraform {
+  required_providers {
+    google = {
+      version = "~> 4.0"
+    }
+  }
 }
 
 /**
  * Task 1: Add IAM Role Bindings (project_iam_bindings)
  * - source: "terraform-google-modules/iam/google//modules/projects_iam"
- * - version: "~> 7.1.0"
+ * - version: "~> 7.4.0"
  * - projects: [var.project_id]
  * - mode: "additive"
  * - bindings:
