@@ -26,4 +26,3 @@ output "backend_services" {
 output "http_proxy" {
   value = module.load_balancer.http_proxy
 }
-
