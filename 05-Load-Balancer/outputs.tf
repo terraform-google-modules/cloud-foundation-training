@@ -19,10 +19,10 @@ output "load_balancer_ip" {
 }
 
 output "backend_services" {
-  value = module.load_balancer.backend_services
+  value     = module.load_balancer.backend_services
+  sensitive = true
 }
 
 output "http_proxy" {
   value = module.load_balancer.http_proxy
 }
-
