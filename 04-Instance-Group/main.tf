@@ -55,7 +55,7 @@ resource "" "service_account_user" {
  * - version: "~> 7.5.0"
  * - project_id: module.project_iam_bindings.projects[0]
  * - subnetwork: refer to subnet created in network.tf (module.network.subnets_self_links[0])
- * - source_image_family: "debian-9"
+ * - source_image_family: "debian-10"
  * - source_image_project: "debian-cloud"
  * - startup_script: refer to startup script file (data.local_file.instance_startup_script.content)
  * - service_account:
