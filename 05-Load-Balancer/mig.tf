@@ -32,7 +32,7 @@ resource "google_service_account_iam_member" "service_account_user" {
 
 module "instance_template" {
   source               = "terraform-google-modules/vm/google//modules/instance_template"
-  version              = "~> 7.9"
+  version              = "~> 8.0"
   project_id           = module.project_iam_bindings.projects[0]
   subnetwork           = module.network.subnets_self_links[0]
   source_image_family  = "debian-10"
@@ -47,7 +47,7 @@ module "instance_template" {
 
 module "managed_instance_group" {
   source            = "terraform-google-modules/vm/google//modules/mig"
-  version           = "~> 7.9"
+  version           = "~> 8.0"
   project_id        = module.project_iam_bindings.projects[0]
   region            = var.region
   target_size       = 2
