@@ -31,7 +31,7 @@ module "network" {
 
 module "cloud_nat" {
   source        = "terraform-google-modules/cloud-nat/google"
-  version       = "~> 2.2"
+  version       = "~> 4.0"
   project_id    = module.project_iam_bindings.projects[0]
   region        = var.region
   create_router = true
