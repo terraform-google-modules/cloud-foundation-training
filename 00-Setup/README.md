@@ -114,21 +114,3 @@ gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="serviceAccount:${
 gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="serviceAccount:${SERVICE_ACCOUNT}" --role="roles/compute.imageUser"
 ```
 
-## 4. Prepare Terraform Credential
-
-Make sure you are in the cloud-foundation-training repository root directory
-
-#### Service Account key
-
-Create and download a service account key for Terraform
-```
-gcloud iam service-accounts keys create sa-cft-training.json --iam-account=${SERVICE_ACCOUNT}
-```
-
-#### Setup Terraform Credential
-
-Supply the key to Terraform using the environment variable GOOGLE_CLOUD_KEYFILE_JSON, setting the value to the location of the file.
-```
-export GOOGLE_CLOUD_KEYFILE_JSON="$(pwd)/sa-cft-training.json"
-export GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_CLOUD_KEYFILE_JSON
-```
