@@ -16,7 +16,7 @@
 
 module "network" {
   source       = "terraform-google-modules/network/google"
-  version      = "~> 7.0"
+  version      = "~> 11.0"
   project_id   = module.project_iam_bindings.projects[0]
   network_name = "lab04-vpc"
   routing_mode = "GLOBAL"
