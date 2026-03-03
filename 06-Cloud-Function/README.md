@@ -1,4 +1,3 @@
-
 # Cloud Foundation Toolkit Lab - 06-Cloud-Function
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fterraform-google-modules%2Fcloud-foundation-training&cloudshell_git_branch=master&cloudshell_open_in_editor=main.tf&cloudshell_tutorial=README.md&cloudshell_working_dir=06-Cloud-Function)
 
@@ -91,14 +90,14 @@ Verify the **Cloud Function** is deployed successfully
 
 Under **06-Cloud-Function** folder, upload a sampe image to the upload bucket
 ```
-gsutil cp images/zombie.jpg gs://`terraform output storage_bucket_image_upload`
+gcloud storage cp images/zombie.jpg gs://`terraform output storage_bucket_image_upload`
 ```
 
 On [Google Cloud Console](https://console.cloud.google.com/), navigate to **Storage -> Browser**
 
 Locate the processed image bucket and checked processed image `zombie.jpg`
 ```bash
-gsutil ls gs://`terraform output storage_bucket_image_processed`
+gcloud storage ls gs://`terraform output storage_bucket_image_processed`
 ```
 
 You can also view the Cloud Function logs from [Google Cloud Console](https://console.cloud.google.com/), navigate to **Logging -> Logs Viewer** and select Cloud Function from the dropdown list
