@@ -1,4 +1,3 @@
-
 # Cloud Foundation Toolkit Lab - 01-Getting-Started
 Clone this repository and run locally, or use Cloud Shell to walk through the steps:
 
@@ -145,7 +144,7 @@ remote_state_bucket = gs://cft-lab-state-<YOUR_NAME>-${random_id.suffix.hex}
 Run the following to review your new Google Cloud Storage buckets Note the random string that was appended to your bucket name.
 
 ```bash
-gsutil ls
+gcloud storage ls
 ```
 
 You will see the newly created GCS bucket listed as `gs://BUCKET_NAME`
