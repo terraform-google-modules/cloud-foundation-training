@@ -1,2 +1,2 @@
-google-cloud-storage==1.19.1
+google-cloud-storage==1.44.0
 Wand==0.5.8
